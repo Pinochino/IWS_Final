@@ -1,7 +1,6 @@
 import React from "react";
 
 const Featured = ({title, imgs}) => {
-    console.log(imgs);
   return (
     <div className="mb-20">
       <h2 className="uppercase text-[1.66667vw] font-bold mb-[1.66667vw]">

@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 const HeaderModes = () => {
+
   return (
     <div className="flex flex-row items-center justify-between flex-1">
       <div className="relative">
-        <input placeholder="Dimoo" className="rounded-2xl" />
-        <i className="bx bx-search absolute right-1 bottom-1"></i>
+        <input placeholder="Dimoo" className="rounded-2xl bg-[#999] h-[2.08333vw] text-xs pl-4 outline-0" />
+        <i className="bx bx-search absolute right-2 bottom-2 "></i>
       </div>
       <div className="flex flex-row items-center">
         <img
@@ -16,16 +17,16 @@ const HeaderModes = () => {
           alt="logo"
           className="w-[1.5rem] h-[1.2rem] mr-2"
         />
-        <span>VN</span>
+        <span className="text-xs">VN</span>
       </div>
       <div>
         <i className="bx bx-user"></i>
-        <Link to="/login">Sign in / </Link>
-        <Link to="/register">register</Link>
+        <Link to="/login" className="text-xs"> Sign in / </Link>
+        <Link to="/register" className="text-xs">Register</Link>
       </div>
       <i className="bx bx-heart"></i>
       <i className="bx bx-headphone"></i>
-      <Button variant={"outline"}>
+      <Button variant="secondary" className={'bg-transparent hover:bg-transparent hover:border-black border-2 border-[#EEEEEE]'}>
         <i className="bx bx-cart"></i>
         <span>0</span>
       </Button>
