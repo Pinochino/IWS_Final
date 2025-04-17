@@ -2,6 +2,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('/fonts/DINPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('../public/fonts/dinpro_black.otf') format('truetype');
+  font-weight: 700;
+}
 
 *{
   box-sizing: border-box;
