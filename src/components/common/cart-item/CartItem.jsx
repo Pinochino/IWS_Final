@@ -3,7 +3,7 @@ import React from "react";
 const CartItem = ({ img, name, price, outofstock = false }) => {
   return (
     <div className="col-span-1">
-      <div className="group bg-white rounded-2xl overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:border-2 hover:border-[#CCCCCC">
+      <div className="group bg-white overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:border-2 hover:border-[#CCCCCC">
         <div className="aspect-square overflow-hidden">
           <img
             src={img}

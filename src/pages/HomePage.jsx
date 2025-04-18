@@ -1,4 +1,4 @@
-import NewArrivals from "@/components/common/arrivals/NewArrivals";
+import NewArrivals, { arrivalImages } from "@/components/common/arrivals/NewArrivals";
 import Banner from "@/components/common/banner/Banner";
 import CustomCarousel from "@/components/common/carousel/CustomCarousel";
 import Featured from "@/components/common/featured/Featured";
@@ -12,10 +12,10 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="flex bg-green-500 justify-center items-center ">
+    <div className="flex justify-center items-center ">
       <div className="w-[72rem]">
         <CustomCarousel />
-        <NewArrivals />
+        <NewArrivals title={'New Arrival'} images={arrivalImages}/>
         <Recommendation />
         <SeriesFigures />
         {featuredData.map((data, index) => {

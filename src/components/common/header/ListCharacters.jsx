@@ -57,10 +57,10 @@ const ListCharacters = () => {
         {items.map((item, index) => (
           <div
             key={index}
-            className="text-sm font-medium px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            className="text-sm font-medium px-4 py-2 cursor-pointer"
             onMouseEnter={() => handleMouseEnter(item)}
           >
-            {item.title}
+           <span className="hover:text-[#D2001e]"> {item.title}</span>
           </div>
         ))}
       </div>

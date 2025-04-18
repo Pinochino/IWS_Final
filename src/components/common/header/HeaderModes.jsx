@@ -26,7 +26,7 @@ const HeaderModes = () => {
       </div>
       <i className="bx bx-heart"></i>
       <i className="bx bx-headphone"></i>
-      <Button variant="secondary" className={'bg-transparent hover:bg-transparent hover:border-black border-2 border-[#EEEEEE]'}>
+      <Button variant="secondary" className={'bg-transparent rounded-2xl hover:bg-transparent hover:border-black border-2 border-[#EEEEEE] max-w-[4.8rem] max-h-[2.1rem]'}>
         <i className="bx bx-cart"></i>
         <span>0</span>
       </Button>

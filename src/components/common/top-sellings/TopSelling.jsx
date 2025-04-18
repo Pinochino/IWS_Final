@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import CartItem from "../cart-item/CartItem";
+import {Link} from 'react-router-dom';
 
 const data = [
   {
@@ -79,7 +80,7 @@ const TopSelling = () => {
             })}
       </div>
       <div className="mt-10 flex justify-center ">
-        <Button variant={'destructive'} className={'uppercase'}>View more</Button>
+        <Button variant={'destructive'} className={'uppercase'}><Link to={'/collection'}>View more</Link></Button>
       </div>
     </div>
   );
