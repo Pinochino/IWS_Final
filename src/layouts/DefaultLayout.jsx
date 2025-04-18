@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 
 const DefaultLayout = ({ children }) => {
   
-  const { isOpen } = useSelector((state) => state.dropdown);
+  const { isOpen, activeMenu } = useSelector((state) => state.dropdown);
   console.log(isOpen);
 
   return (
     <div>
       <Header />
-      {isOpen && <CharacterHover />}
+      {/* {isOpen && <CharacterHover />} */}
       <div className="mt-20"> {children}</div>
       <Footer />
     </div>

@@ -1,3 +1,4 @@
+import CollectionPage from "@/pages/CollectionPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
@@ -14,6 +15,10 @@ const publicRouters = [
     {
         path: '/register',
         component: RegisterPage,
+    },
+    {
+        path: '/collection',
+        component: CollectionPage,
     }
 ]
 

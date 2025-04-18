@@ -1,64 +1,81 @@
-import { openMenu, toggleMenu } from "@/redux/reducers/DropdownReducer";
+import { openMenu, closeMenu } from "@/redux/reducers/DropdownReducer";
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import CharacterHover from "./CharacterHover";
 
-const items = ["New & Feature", "SIRIES", "MEGA", "TYPES", "ACCESSORIES"];
-const data = [{
-  'New & Featured': [
-    {
 
-    }
-  ]
-}]
+const items = [
+  { title: "New & Feature", layout: "one" },
+  { title: "SIRIES", layout: "two" },
+  { title: "MEGA", layout: "three" },
+  { title: "TYPES", layout: "two" },
+  { title: "ACCESSORIES", layout: "one" },
+];
 
 const images = [
   {
-      img: 'https://global-static.popmart.com/globalAdmin/1744336725190____pc-hirono-2____.jpg?x-oss-process=image/format,webp',
-      name: 'Hirono Shelter Series Figures',
+    img: "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714095999450____%E6%9C%AA%E6%A0%87%E9%A2%98-1-03____.png?x-oss-process=image/format,webp",
+    name: 'Hirono Shelter Series Figures',
   },
   {
-      img: 'https://global-static.popmart.com/globalAdmin/1744336722233____pc-hirono-1____.jpg?x-oss-process=image/format,webp',
-      name: 'Hirono Shelter Series Figures',
+    img: "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714095999450____%E6%9C%AA%E6%A0%87%E9%A2%98-1-03____.png?x-oss-process=image/format,webp",
+    name: 'Hirono Shelter Series Figures',
   },
   {
-      img: 'https://global-static.popmart.com/globalAdmin/1744336728409____pc-hirono-3____.jpg?x-oss-process=image/format,webp',
-      name: 'Hirono Shelter Series Figures',
+    img:"https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714096012324____%E6%9C%AA%E6%A0%87%E9%A2%98-1-05____.png?x-oss-process=image/format,webp",
+    name: 'Hirono Shelter Series Figures',
   },
   {
-      img: 'https://global-static.popmart.com/globalAdmin/1744336733187____pc-hirono-4____.jpg?x-oss-process=image/format,webp',
-      name: 'Hirono Shelter Series Figures',
+    img: 'https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714095999450____%E6%9C%AA%E6%A0%87%E9%A2%98-1-03____.png?x-oss-process=image/format,webp',
+    name: 'Hirono Shelter Series Figures',
   },
-
-]
+];
 
 const ListCharacters = () => {
-
   const dispatch = useDispatch();
-  const { isOpen } = useSelector((state) => state.dropdown);
+  const { isOpen, activeMenu } = useSelector((state) => state.dropdown);
 
-  const handleClick = () => {
-    console.log('isLIC');
-    dispatch(toggleMenu());
-  }
+  const handleMouseEnter = (menu) => {
+    dispatch(openMenu(menu.title));
+  };
+
+  const handleMouseLeave = () => {
+    dispatch(closeMenu());
+  };
+
+  const activeItem = items.find((item) => item.title === activeMenu);
+
   return (
-    <div className="flex flex-row items-center">
-      <div>
-        <img
-          src="https://cdn-global-eude.popmart.com/global-web/eude-prod/assets/images/logo.png?x-oss-process=image/format,webp"
-          alt="logo"
-          className="w-[5.5rem] h-[1.75rem] mr-10"
-        />
+    <div className="flex flex-row items-center " onMouseLeave={handleMouseLeave}>
+      <img
+        src="https://cdn-global-eude.popmart.com/global-web/eude-prod/assets/images/logo.png?x-oss-process=image/format,webp"
+        alt="logo"
+        className="w-[5.5rem] h-[1.75rem] mr-10"
+      />
+
+      <div className="flex gap-4">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="text-sm font-medium px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            onMouseEnter={() => handleMouseEnter(item)}
+          >
+            {item.title}
+          </div>
+        ))}
       </div>
-      <div className="bg-amber-400 flex flex-row justify-between flex-[0.8]">
-        {items.map((item, index) => {
-          return (
-            <button key={index} className="bg-amber-300 text-sm font-medium cursor-pointer" onClick={handleClick} >
-              {item}
-            </button>
-          );
-        })}
-      </div>
+
+      {/* Hiển thị dropdown theo layout riêng */}
+      {isOpen && activeItem && (
+        <div className="absolute top-full left-0   bg-white shadow-lg p-6 z-50 w-screen">
+          <h3 className="text-lg font-bold mb-4">{activeItem.title}</h3>
+          <CharacterHover
+            name={activeItem.title}
+            imgs={images}
+            layoutType={activeItem.layout}
+          />
+        </div>
+      )}
     </div>
   );
 };

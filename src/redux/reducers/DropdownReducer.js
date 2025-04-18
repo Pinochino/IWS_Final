@@ -1,24 +1,34 @@
+// redux/reducers/DropdownReducer.js
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isOpen: false,
+  isOpen: false,
+  activeMenu: null, // null | 'New & Feature' | 'SIRIES' | ...
 };
 
 const dropdownSlice = createSlice({
-    name: 'dropdown',
-    initialState,
-    reducers: {
-        toggleMenu: (state) => {
-            state.isOpen = !state.isOpen;
-        },
-        closeMenu: (state) => {
-            state.isOpen = false;
-        },
-        openMenu: (state) => {
-            state.isOpen = true;
-        },
-    }
+  name: "dropdown",
+  initialState,
+  reducers: {
+    openMenu: (state, action) => {
+      state.isOpen = true;
+      state.activeMenu = action.payload;
+    },
+    closeMenu: (state) => {
+      state.isOpen = false;
+      state.activeMenu = null;
+    },
+    toggleMenu: (state, action) => {
+      if (state.activeMenu === action.payload) {
+        state.isOpen = !state.isOpen;
+      } else {
+        state.isOpen = true;
+        state.activeMenu = action.payload;
+      }
+    },
+  },
 });
 
-export const { toggleMenu, closeMenu, openMenu } = dropdownSlice.actions;
+export const { openMenu, closeMenu, toggleMenu } = dropdownSlice.actions;
 export const dropdownReducer = dropdownSlice.reducer;
