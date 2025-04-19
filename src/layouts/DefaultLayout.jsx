@@ -18,11 +18,11 @@ const DefaultLayout = ({ children }) => {
       <Header />
       {/* {isOpen && <CharacterHover />} */}
       <div className="mt-20"> {children}</div>
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-4 right-4 z-50 pger">
         {ad && (
         <div className="relative">
           <i
-            className="bx bx-x right-0 absolute top-0 -translate-y-4"
+            className="bx bx-x right-0 absolute top-0 -translate-y-6"
             onClick={handleClick}
           ></i>
             <img

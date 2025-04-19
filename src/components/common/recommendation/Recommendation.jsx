@@ -37,7 +37,7 @@ const Recommendation = () => {
             return (
                 <CarouselItem key={index} className={"lg:basis-1/3 sm:basis-1/2"}>
                     <img src={data.img} alt="logo"/>
-                    <span className="text-sm mt-2.5">{data.name}</span>
+                    <span className="text-sm leading-8">{data.name}</span>
                 </CarouselItem>
             )
          })}

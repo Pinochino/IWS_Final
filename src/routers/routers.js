@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
+import CartPage from "@/pages/CartPage";
 
 const publicRouters = [
     {
@@ -25,7 +26,10 @@ const publicRouters = [
         path: '/product',
         component: ProductDetailPage,
     },
-
+    {
+        path: '/cart',
+        component: CartPage,
+    },
 ]
 
 const privateRouters = []

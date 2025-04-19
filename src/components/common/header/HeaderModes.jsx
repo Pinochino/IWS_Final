@@ -2,13 +2,18 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const HeaderModes = () => {
+  const { items } = useSelector((state) => state.cart);
 
   return (
     <div className="flex flex-row items-center justify-between flex-1">
       <div className="relative">
-        <input placeholder="Dimoo" className="rounded-2xl bg-[#999] h-[2.08333vw] text-xs pl-4 outline-0" />
+        <input
+          placeholder="Dimoo"
+          className="rounded-2xl bg-[#F4F4F4] h-[2.08333vw] text-xs pl-4 outline-0"
+        />
         <i className="bx bx-search absolute right-2 bottom-2 "></i>
       </div>
       <div className="flex flex-row items-center">
@@ -21,15 +26,26 @@ const HeaderModes = () => {
       </div>
       <div>
         <i className="bx bx-user"></i>
-        <Link to="/login" className="text-xs"> Sign in / </Link>
-        <Link to="/register" className="text-xs">Register</Link>
+        <Link to="/login" className="text-xs">
+          Sign in /
+        </Link>
+        <Link to="/register" className="text-xs">
+          Register
+        </Link>
       </div>
       <i className="bx bx-heart"></i>
       <i className="bx bx-headphone"></i>
-      <Button variant="secondary" className={'bg-transparent rounded-2xl hover:bg-transparent hover:border-black border-2 border-[#EEEEEE] max-w-[4.8rem] max-h-[2.1rem]'}>
-        <i className="bx bx-cart"></i>
-        <span>0</span>
-      </Button>
+      <Link to={"/cart"}>
+        <Button
+          variant="secondary"
+          className={
+            "bg-transparent rounded-2xl hover:bg-transparent hover:border-black border-2 border-[#EEEEEE] max-w-[4.8rem] max-h-[2.1rem]"
+          }
+        >
+          <i className="bx bx-cart"></i>
+          <span>{items.length}</span>
+        </Button>
+      </Link>
     </div>
   );
 };
