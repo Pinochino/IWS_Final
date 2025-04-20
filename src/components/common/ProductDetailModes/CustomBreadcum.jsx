@@ -18,10 +18,6 @@ const CustomBreadcum = ({name}) => {
       </BreadcrumbItem>
       <BreadcrumbSeparator />
       <BreadcrumbItem>
-        <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-      </BreadcrumbItem>
-      <BreadcrumbSeparator />
-      <BreadcrumbItem>
         <BreadcrumbPage>{name}</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>

@@ -30,7 +30,7 @@ const HeaderModes = () => {
         <Link to="/login" className="text-xs mr-0.5">
           Sign in /
         </Link>
-        <Link to="/login" className="text-xs">
+        <Link to="/register" className="text-xs">
           Register
         </Link>
       </div>

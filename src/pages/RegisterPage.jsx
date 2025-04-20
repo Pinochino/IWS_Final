@@ -149,7 +149,7 @@ const RegisterPage = () => {
   return (
     <div className=" flex justify-center items-center flex-col mb-40 w-full overflow-x-hidden">
       <h2 className="font-medium text-[1.66667vw]  mb-[1.66667vw] text-[#000] leading-[1.71875vw] uppercase mt-20">
-        Sign in
+       Register
       </h2>
       <form
         method="post"
@@ -157,7 +157,7 @@ const RegisterPage = () => {
         className="flex justify-center items-center flex-col w-[22.2rem]"
       >
       
-      <div className="w-full">
+      <div className="w-full mb-4">
           <Input
             placeholder="Enter your e-email address"
             onChange={(value) => handleChangeInput("email", value)}

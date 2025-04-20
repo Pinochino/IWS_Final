@@ -33,9 +33,9 @@ const ProductDetailPage = () => {
       {isLoading ? (
         <div className="h-full min-h-[30rem]"><Spinner /></div>
       ) : (
-        <div className=" w-[63.5%]">
+        <div className="w-[63.5%]">
           <CustomBreadcum name={product.name} />
-          <div className="flex justify-between flex-nowrap gap-10 mb-20">
+          <div className="flex justify-between flex-wrap gap-10 mb-20 flex-col lg:flex-row">
             <div className="flex-[0.6]">
               <SlideDetail images={product.images} />
             </div>

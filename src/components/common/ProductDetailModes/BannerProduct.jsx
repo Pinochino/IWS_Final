@@ -8,7 +8,7 @@ const BannerProduct = ({ images }) => {
           return (
             <img
               key={index}
-              className="max-h-[53rem] w-full"
+              className="w-full h-auto"
               src={img}
               alt="logo"
             />

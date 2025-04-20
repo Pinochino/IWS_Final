@@ -6,18 +6,17 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const DefaultLayout = ({ children }) => {
-  const { isOpen, activeMenu } = useSelector((state) => state.dropdown);
   const [ad, setAd] = useState(true);
   const handleClick = () => {
     setAd((prev) => !prev);
   };
 
   return (
-    <div>
+    <div className="">
       <Header />
       {/* {isOpen && <CharacterHover />} */}
-      <main>
-        <div className="mt-20"> {children}</div>
+      <main className="sm:w-fit mt-20">
+        <div className=""> {children}</div>
         <div className="fixed bottom-4 right-4 z-50 pger">
           {ad && (
             <div className="relative">

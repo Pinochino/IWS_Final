@@ -157,7 +157,7 @@ const LoginPage = () => {
         className="flex justify-center items-center flex-col w-[22.2rem]"
       >
       
-      <div className="w-full">
+      <div className="w-full mb-4">
           <Input
             placeholder="Enter your e-email address"
             onChange={(value) => handleChangeInput("email", value)}

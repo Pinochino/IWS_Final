@@ -9,14 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import CartItem from "../cart-item/CartItem";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -70,8 +62,8 @@ const NewArrivals = ({ title, layout = false }) => {
   }, [dispatch]);
 
   return (
-    <div className="mb-20">
-      <div className="flex justify-between items-center mb-[1.66667vw]">
+    <div className="mb-20 w-[100%]">
+      <div className="flex justify-between items-center mb-[1.66667vw] w-full ">
         <h5 className="uppercase text-[#E60021] font-bold text-[1.66667vw] ">
           {title}
         </h5>
@@ -84,12 +76,12 @@ const NewArrivals = ({ title, layout = false }) => {
           </Link>
         </button>
       </div>
-      <Carousel>
+      <Carousel className={'w-full'}>
         <CarouselContent>
           {(isLoading ? Array.from({ length: 4 }) : fakeProducts).map(
             (data, index) => {
               return (
-                <CarouselItem key={index} className="lg:basis-1/4 sm:basis-1/2">
+                <CarouselItem key={index} className="lg:basis-1/4 sm:basis-1/4">
                   {isLoading ? (
                     <Skeleton className="h-[20rem] w-full rounded-lg bg-[#E0E0E0]" />
                   ) : layout ? (
