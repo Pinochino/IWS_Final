@@ -1,13 +1,26 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { useRef } from "react";
+import { useState } from "react";
 
 const SeriesFigures = () => {
+
+  const videoRef = useRef();
+  const btnVideoRef = useRef();
+
+  const playVideo = () => {
+    videoRef.current.play();
+    btnVideoRef.current.classList.add("hidden");
+  }
+
+
   return (
     <div className="mb-20 relative">
       <h2 className="uppercase text-[1.66667vw] font-bold mb-[1.66667vw]">
         Hirono Echo Series Figures
       </h2>
       <video
+      ref={videoRef}
         controls
         poster="https://global-static.popmart.com/globalAdmin/1744278382440____pc____.jpg"
         className="max-h-[40.5rem] relative"
@@ -19,7 +32,12 @@ const SeriesFigures = () => {
         />
         Your browser does not support the video tag.
       </video>
-      <i class='bx bx-play absolute text-7xl right-[45%] top-[40%] bg-white rounded-[50%] text-center'></i>
+      <div className="right-[42%] top-[45%] absolute rounded-[50%] flex justify-center items-center cursor-pointer
+      ">
+       <img
+       ref={btnVideoRef}
+       src="https://cdn-global.popmart.com/global-mobile/images/icons/video-play-icon.png" alt="" className="max-w-[50%] max-h-[50%]" onClick={playVideo}/>
+      </div>
       <div className="flex justify-center items-center mt-[1.25vh]">
         <Button variant="destructive" className={"uppercase"}>
           Shop now

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import CartItem from "../cart-item/CartItem";
 import {Link} from 'react-router-dom';
+import { fakeProducts } from "@/data/WebData";
 
 const data = [
   {
@@ -73,9 +74,9 @@ const TopSelling = () => {
         top sellings
       </h2>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 row-span-3 gap-7">
-            {data.map((e, index) => {
+            {fakeProducts.map((e, index) => {
                 return (
-                  <CartItem key={index} img={e.img} name={e.name} price={e.price}/>
+                  <CartItem key={index} img={e.thumbnail} name={e.name} price={e.price}/>
                 )
             })}
       </div>

@@ -2,6 +2,7 @@ import { openMenu, closeMenu } from "@/redux/reducers/DropdownReducer";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CharacterHover from "./CharacterHover";
+import {Link} from 'react-router-dom';
 
 const items = [
   { title: "New & Feature", layout: "one", slice: 4  },
@@ -81,11 +82,13 @@ const ListCharacters = () => {
       className="flex flex-row items-center "
       onMouseLeave={handleMouseLeave}
     >
-      <img
-        src="https://cdn-global-eude.popmart.com/global-web/eude-prod/assets/images/logo.png?x-oss-process=image/format,webp"
-        alt="logo"
-        className="w-[5.5rem] h-[1.75rem] mr-10"
-      />
+   <Link to="/">
+        <img
+          src="https://cdn-global-eude.popmart.com/global-web/eude-prod/assets/images/logo.png?x-oss-process=image/format,webp"
+          alt="logo"
+          className="w-[5.5rem] h-[1.75rem] mr-10"
+        />
+   </Link>
 
       <div className="flex gap-4">
         {items.map((item, index) => (
@@ -101,7 +104,7 @@ const ListCharacters = () => {
 
       {/* Hiển thị dropdown theo layout riêng */}
       {isOpen && activeItem && (
-        <div className="absolute top-full left-0   bg-white shadow-lg p-6 z-50 w-screen">
+        <div className="absolute top-full left-0   bg-white shadow-lg p-6 z-50 w-screen border-t-[#ddd] border-t-2">
           <CharacterHover
             name={activeItem.title}
             imgs={images}

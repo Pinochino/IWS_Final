@@ -9,6 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { fakeProducts } from "@/data/WebData";
 
 const data = [
   {
@@ -115,11 +116,11 @@ const data = [
 
 const ListProduct = () => {
   return (
-    <div className="bg-pink-500 flex-[0.8] max-w-[72rem] mb-20">
+    <div className="flex-[0.8] max-w-[72rem] mb-20">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 row-span-5 gap-7 mb-10">
-        {data.map((e, index) => {
+        {fakeProducts.map((e, index) => {
           return (
-            <CartItem key={index} img={e.img} name={e.name} price={e.price} />
+            <CartItem key={index} img={e.thumbnail} name={e.name} price={e.price} />
           );
         })}
       </div>

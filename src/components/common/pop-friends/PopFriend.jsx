@@ -31,7 +31,6 @@ const PopFriend = () => {
        
         <CarouselContent>
           {data.map((e, index) => {
-            console.log(e);
             return (
               <CarouselItem key={index} className="basis-1/4">
                 <img src={e} alt="logo" />

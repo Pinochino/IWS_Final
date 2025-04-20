@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 const DefaultLayout = ({ children }) => {
   const { isOpen, activeMenu } = useSelector((state) => state.dropdown);
-  console.log(isOpen);
   const [ad, setAd] = useState(true);
   const handleClick = () => {
     setAd((prev) => !prev);

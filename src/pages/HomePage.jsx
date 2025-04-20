@@ -15,7 +15,7 @@ const HomePage = () => {
     <div className="flex justify-center items-center ">
       <div className="w-[72rem]">
         <CustomCarousel />
-        <NewArrivals title={'New Arrival'} images={arrivalImages}/>
+        <NewArrivals title={'New Arrival'} />
         <Recommendation />
         <SeriesFigures />
         {featuredData.map((data, index) => {

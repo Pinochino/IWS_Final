@@ -1,4 +1,5 @@
 import { Checkbox } from "@/components/ui/checkbox";
+import { fakeProducts } from "@/data/WebData";
 import React from "react";
 
 const categories = [
@@ -13,7 +14,7 @@ const SideCollection = () => {
   const imageSrc = 'https://prod-eurasian-res.popmart.com/default/20241030_141739_676860____1_____1200x1200.jpg?x-oss-process=image/resize,p_40,format,webp,format,webp';
   const name = 'Figure'
   return (
-    <div className="bg-yellow-500 flex-[0.2] max-w-[12.4375rem]">
+    <div className=" flex-[0.2] max-w-[12.4375rem]">
       <div className="border-b-2 border-b-gray-300 pb-2">
         <h5 className="text-[.83333vw] text-[#000] font-bold mb-4">Category</h5>
         {categories.map((item, index) => {
@@ -34,7 +35,7 @@ const SideCollection = () => {
       <h5 className="text-[.83333vw] text-[#000] font-bold my-4">Characters</h5>
       <div>
     <div className="grid grid-cols-3 grid-rows-11 gap-4">
-        {[...Array(33)].map((_, index) => (
+        {fakeProducts.map((e, index) => (
         <div key={index} className="col-span-1 flex flex-col items-center cursor-pointer">
             <img
               src={imageSrc}
