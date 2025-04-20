@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 
 const CartRight = () => {
@@ -22,7 +23,7 @@ const CartRight = () => {
         <h5 className='text-[.1.5625vw] font-black'>280.000 <sup>đ</sup> VND</h5>
     </div>
     <div className='mt-[1.35417vw]'>
-        <Button className={'uppercase w-full'} variant={'destructive'}>Check out</Button>
+        <Link to={'/payment'}><Button className={'uppercase w-full'} variant={'destructive'}>Check out</Button></Link>
     </div>
     </div>
   )

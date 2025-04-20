@@ -81,7 +81,7 @@ const TopSelling = () => {
             })}
       </div>
       <div className="mt-10 flex justify-center ">
-        <Button variant={'destructive'} className={'uppercase'}><Link to={'/collection'}>View more</Link></Button>
+        <Button variant={'destructive'} className={'uppercase'}><Link to={'/collection/TOP SELLINGS'}>View more</Link></Button>
       </div>
     </div>
   );

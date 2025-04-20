@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 const items = [
   { title: "New & Feature", layout: "one", slice: 4  },
-  { title: "SIRIES", layout: "two"  },
+  { title: "SERIES", layout: "two"  },
   { title: "MEGA", layout: "three", slice: 5 },
   { title: "TYPES", layout: "three", slice: 4  },
   { title: "ACCESSORIES", layout: "three", slice: 4 },

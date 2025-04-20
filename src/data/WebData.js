@@ -34,6 +34,7 @@ const fakeProducts = [
     category: "Limited Volume",
     tags: ["new", "limited", "figure"],
     images: [
+      "https://prod-eurasian-res.popmart.com/default/20250416_100123_038000____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250416_100123_567662____2_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250416_100123_351832____3_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250416_100123_539544____4_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
@@ -42,6 +43,15 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_100123_038000____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/tinytiny-a-new-story",
     isOutOfStock: true,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250416_100202_314966_____01_____1200x670.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100202_736803_____02_____1200x951.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100202_717078_____03_____1200x759.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100202_183877_____04_____1200x1312.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100202_285799_____05_____1200x1270.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100202_432929_____06_____1200x1460.jpg?x-oss-process=image/format,webp',
+
+    ]
   },
   {
     id: 2,
@@ -62,6 +72,17 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250415_182719_050187____3_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250415_182719_738837____4_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250415_182719_499352____5_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
+    ],
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_370395_____01_____1200x825.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_229646_____02_____1200x848.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_301064_____03_____1200x1424.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_726151_____04_____1200x1068.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_119828_____05_____1200x1387.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_078208_____06_____1200x693.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_572657_____07_____1200x1038.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_122686_____08_____1200x962.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_171210_185866_____09_____1200x1247.jpg?x-oss-process=image/format,webp',
     ],
     thumbnail:
       "https://prod-eurasian-res.popmart.com/default/20250415_182718_844945____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
@@ -85,8 +106,16 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_173926_024976____2_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250416_173926_687829____3_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
       "https://prod-eurasian-res.popmart.com/default/20250416_173926_687829____3_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
-      "",
-
+    ],
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250416_174041_079440_____01_____1200x578.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174042_088016_____02_____1200x1044.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174042_465647_____03_____1200x1554.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174042_168797_____04_____1200x1379.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174041_376296_____05_____1200x742.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174042_469378_____06_____1200x1008.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174042_984995_____07_____1200x922.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_174042_739383_____08_____1200x1467.jpg?x-oss-process=image/format,webp',
     ],
     thumbnail:
       "https://prod-eurasian-res.popmart.com/default/20250416_173926_298919____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
@@ -117,6 +146,14 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250417_103815_294835____1_____1200x1200.jpg?x-oss-process=image/resize,p_40,format,webp,format,webp",
     productDetailsUrl: "/products/labubu-forest-friends",
     isOutOfStock: false,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250418_092744_233790_____01_____1200x577.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_092744_078642_____02_____1200x1062.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_092744_373622_____03_____1200x654.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_092744_318904_____04_____1200x1286.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_092744_430114_____05_____1200x1235.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_092744_912559_____06_____1200x1516.jpg?x-oss-process=image/format,webp'
+    ]
   },
   {
     id: 5,
@@ -141,6 +178,16 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_164530_787289____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/bunny-holiday-series",
     isOutOfStock: false,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_236808_____01_____1200x798.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_835927_____02_____1200x798.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_479664_____03_____1200x1321.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_987701_____04_____1200x1509.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164701_914744_____05_____1200x814.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_708977_____06_____1200x1344.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_975901_____07_____1200x1289.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_164702_191104_____08_____1200x1499.jpg?x-oss-process=image/format,webp'
+    ]
   },
   {
     id: 6,
@@ -167,6 +214,14 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_114800_150812____1_____1200x1200.jpg?x-oss-process=image/resize,p_40,format,webp,format,webp",
     productDetailsUrl: " / products / molly - retro - club",
     isOutOfStock: true,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250418_095437_718552_____01_____1200x739.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_095437_748853_____02_____1200x1026.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_095437_844300_____03_____1200x654.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_095437_058847_____04_____1200x1286.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_095437_659731_____05_____1200x1235.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_095437_311957_____06_____1200x1516.jpg?x-oss-process=image/format,webp',
+    ]
   },
   {
     id: 7,
@@ -192,6 +247,16 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_101451_021330____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/pucky-dream-circus",
     isOutOfStock: false,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_036488_____01_____1200x646.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_003871_____02_____1200x1100.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_725939_____03_____1200x1396.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_768814_____05_____1200x1400.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_059815_____06_____1200x1100.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_336296_____07_____1200x1092.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_000932_____08_____1200x1211.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250417_095050_585083_____09_____1200x1272.jpg?x-oss-process=image/format,webp'
+    ]
   },
   {
     id: 8,
@@ -215,6 +280,14 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250417_100800_970954____1_____1200x1200.jpg?x-oss-process=image/resize,p_40,format,webp,format,webp",
     productDetailsUrl: " / products / dimoo - animal - sleep",
     isOutOfStock: false,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250418_093203_662844_____01_____1200x591.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_093203_854895_____02_____1200x601.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_093203_697555_____04_____1200x716.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_093203_506747_____05_____1200x1320.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_093203_629512_____06_____1200x1217.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_093203_394755_____07_____1200x1279.jpg?x-oss-process=image/format,webp',
+    ]
   },
   {
     id: 9,
@@ -238,6 +311,15 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_100512_549400____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/satyr-rory-nature-calls",
     isOutOfStock: false,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250416_100542_361666_____01_____1200x920.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100542_014089_____02_____1200x1146.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100542_689908_____03_____1200x759.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100542_459358_____04_____1200x1312.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100542_273672_____05_____1200x1270.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250416_100542_167995_____06_____1200x1460.jpg?x-oss-process=image/format,webp',
+
+    ]
   },
   {
     id: 10,
@@ -262,6 +344,15 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20250416_114338_155732____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/crybaby-silent-dreams",
     isOutOfStock: true,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_975820_____01_____1200x1031.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_957953_____02_____1200x947.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_130175_____03_____1200x824.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_069896_____04_____1200x1500.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_403815_____05_____1200x1322.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_398798_____06_____1200x1100.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20250418_094501_696930_____08_____1200x1480.jpg?x-oss-process=image/format,webp'
+    ]
   },
   {
     id: 11,
@@ -286,6 +377,19 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20240903_144234_897675____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/crybaby-silent-dreams",
     isOutOfStock: true,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20240828_092300_758317_____01_____1200x600.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092300_771554_____02_____1200x558.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092300_961007_____03_____1200x816.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092259_995583_____04_____1200x834.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092259_865465_____05_____1200x1002.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092259_762315_____06_____1200x564.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092300_852443_____07_____1200x1548.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092259_120944_____08_____1200x814.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092300_089826_____09_____1200x1040.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092300_372870_____10_____1200x964.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240828_092259_887147_____11_____1200x1245.jpg?x-oss-process=image/format,webp'
+    ]
   },
   {
     id: 12,
@@ -311,6 +415,15 @@ const fakeProducts = [
       "https://prod-eurasian-res.popmart.com/default/20240903_143428_771783____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
     productDetailsUrl: "/products/crybaby-silent-dreams",
     isOutOfStock: true,
+    details: [
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_373747_____01_____1200x553.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_264215_____02_____1200x512.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_621057_____03_____1200x719.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_793737_____04_____1200x759.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_592788_____05_____1200x1103.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_181396_____06_____1200x975.jpg?x-oss-process=image/format,webp',
+      'https://prod-eurasian-res.popmart.com/default/20240919_150012_272496_____07_____1200x1223.jpg?x-oss-process=image/format,webp'
+    ]
   },
 ];
 

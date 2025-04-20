@@ -4,6 +4,8 @@ import LoginPage from "../pages/LoginPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
 import CartPage from "@/pages/CartPage";
 import WishlistPage from "@/pages/WishlistPage";
+import RegisterPage from "@/pages/RegisterPage";
+import PaymentPage from "@/pages/PaymentPage";
 
 const publicRouters = [
     {
@@ -15,11 +17,19 @@ const publicRouters = [
         component: LoginPage,
     },
     {
-        path: '/collection',
+        path: '/register',
+        component: RegisterPage,
+    },
+    {
+        path: '/payment',
+        component: PaymentPage,
+    },
+    {
+        path: '/collection/:heading',
         component: CollectionPage,
     },
     {
-        path: '/product',
+        path: '/product/:id',
         component: ProductDetailPage,
     },
     {

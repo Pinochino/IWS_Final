@@ -34,7 +34,7 @@ const HeaderModes = () => {
           Register
         </Link>
       </div>
-      <i className="bx bx-heart"></i>
+      <Link to={'/wishlist'}><i className="bx bx-heart"></i></Link>
       <i className="bx bx-headphone"></i>
       <Link to={"/cart"}>
         <Button

@@ -9,7 +9,7 @@ import {
   } from "@/components/ui/breadcrumb"
   
 
-const CustomBreadcum = () => {
+const CustomBreadcum = ({name}) => {
   return (
     <Breadcrumb>
     <BreadcrumbList className={'my-5'}>
@@ -22,7 +22,7 @@ const CustomBreadcum = () => {
       </BreadcrumbItem>
       <BreadcrumbSeparator />
       <BreadcrumbItem>
-        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        <BreadcrumbPage>{name}</BreadcrumbPage>
       </BreadcrumbItem>
     </BreadcrumbList>
   </Breadcrumb>  

@@ -90,11 +90,11 @@ We do not warrant that the quality of any products, services, information, or ot
   },
 ];
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const [err, setError] = useState("");
   const [data, setData] = useState({
+      email: "",
     password: "",
-    email: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -225,4 +225,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

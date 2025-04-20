@@ -16,22 +16,24 @@ const DefaultLayout = ({ children }) => {
     <div>
       <Header />
       {/* {isOpen && <CharacterHover />} */}
-      <div className="mt-20"> {children}</div>
-      <div className="fixed bottom-4 right-4 z-50 pger">
-        {ad && (
-        <div className="relative">
-          <i
-            className="bx bx-x right-0 absolute top-0 -translate-y-6"
-            onClick={handleClick}
-          ></i>
-            <img
-              src="https://global-static.popmart.com/globalAdmin/1744336317480____pc%E7%AB%AF%E6%8C%82%E4%BB%B6____.png?x-oss-process=image/format,webp"
-              alt="Easter Event"
-              className="w-24 h-24 cursor-pointer animate-bounce"
-            />
-        </div>
+      <main>
+        <div className="mt-20"> {children}</div>
+        <div className="fixed bottom-4 right-4 z-50 pger">
+          {ad && (
+            <div className="relative">
+              <i
+                className="bx bx-x right-0 absolute top-0 -translate-y-6"
+                onClick={handleClick}
+              ></i>
+              <img
+                src="https://global-static.popmart.com/globalAdmin/1744336317480____pc%E7%AB%AF%E6%8C%82%E4%BB%B6____.png?x-oss-process=image/format,webp"
+                alt="Easter Event"
+                className="w-24 h-24 cursor-pointer animate-bounce"
+              />
+            </div>
           )}
-      </div>
+        </div>
+      </main>
 
       <Footer />
     </div>

@@ -1,4 +1,4 @@
-import NewArrivals, { arrivalImages } from "@/components/common/arrivals/NewArrivals";
+import NewArrivals from "@/components/common/arrivals/NewArrivals";
 import Banner from "@/components/common/banner/Banner";
 import CustomCarousel from "@/components/common/carousel/CustomCarousel";
 import Featured from "@/components/common/featured/Featured";

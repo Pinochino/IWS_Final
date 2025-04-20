@@ -81,13 +81,15 @@ const ProductInformation = () => {
         >
           add to cart
         </Button>
-        <Button
-          className={
-            "uppercase w-[11.5625vw] h-[3.125vw] text-white cursor-pointer font-bold text-[.83333vw] bg-[#d2001e]"
-          }
-        >
-          Buy now
-        </Button>
+      <Link to={'/payment'}>
+          <Button
+            className={
+              "uppercase w-[11.5625vw] h-[3.125vw] text-white cursor-pointer font-bold text-[.83333vw] bg-[#d2001e]"
+            }
+          >
+            Buy now
+          </Button>
+      </Link>
       </div>
       {dataAccordion.map((item, index) => (
         <div key={index} className={"border-b-2 border-b-[#DDDDDD]"}>

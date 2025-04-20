@@ -25,7 +25,6 @@ body {
   font-variant: tabular-nums;
 }
 
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
