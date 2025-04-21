@@ -49,47 +49,49 @@ const CustomCarousel = () => {
   
       return () => clearTimeout(timer); // cleanup nếu component unmount
     }, [dispatch]);
-  return (
-    <div>
-      {isLoading ? (
-        <div className="relative w-[72rem] mx-auto overflow-hidden mb-20 h-[30rem]" >
-          <Skeleton className="h-full w-full  bg-[#E0E0E0]" />
-        </div>
-      ) : (
-        <div className="relative w-[72rem] mx-auto overflow-hidden mb-20">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {imgs.map((src, i) => (
-                <div key={i} className="flex-[0_0_100%]">
-                  <img
-                    src={src}
-                    alt={`slide-${i}`}
-                    className="w-full h-[30rem] object-cover"
-                  />
-                </div>
-              ))}
-            </div>
+return (
+  <div >
+    {isLoading ? (
+      <div className="relative w-full sm:w-[72rem] mx-auto overflow-hidden mb-20 h-[15rem] sm:h-[30rem]">
+        <Skeleton className="h-full w-full bg-[#E0E0E0]" />
+      </div>
+    ) : (
+      <div  className="relative w-fit lg:w-[100%%] mx-auto overflow-hidden mb-20">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {imgs.map((src, i) => (
+              <div key={i} className="flex-[0_0_100%]">
+                <img
+                  src={src}
+                  alt={`slide-${i}`}
+                  className="w-full h-full  object-cover"
+                />
+              </div>
+            ))}
           </div>
-
-          <button
-            onClick={scrollPrev}
-            disabled={!canScrollPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 disabled:opacity-50"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-
-          <button
-            onClick={scrollNext}
-            disabled={!canScrollNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 disabled:opacity-50"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
         </div>
-      )}
-    </div>
-  );
+
+        {/* Buttons only visible on sm and up */}
+        <button
+          onClick={scrollPrev}
+          disabled={!canScrollPrev}
+          className="hidden sm:block absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 disabled:opacity-50"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <button
+          onClick={scrollNext}
+          disabled={!canScrollNext}
+          className="hidden sm:block absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100 disabled:opacity-50"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
+    )}
+  </div>
+);
+
 };
 
 export default CustomCarousel;

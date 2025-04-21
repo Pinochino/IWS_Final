@@ -12,8 +12,8 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="lg:flex justify-center items-center w-auto">
-      <div className="lg:max-w-[75%] mt-[8rem] max-w-full">
+    <div className="lg:flex justify-center items-center w-fit">
+      <div className="lg:max-w-[75%]  w-common">
         <CustomCarousel />
         <NewArrivals title={'New Arrival'} />
         <Recommendation />

@@ -142,4 +142,32 @@ body {
     @apply bg-background text-foreground;
   }
 }
+@media screen and (max-width: 320px) {
+  
+}
+
+@media screen and (max-width: 480px) {
+  .w-common {
+    max-width: 63rem;
+    margin-left: 2.5rem !important;
+  }
+  .Carousel1 .aspect-square > img {
+    max-width: 75.5rem;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .w-common {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+ 
+}
+
+@media screen and (min-width: 1025px) {
+
+}
 

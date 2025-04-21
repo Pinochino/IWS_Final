@@ -70,10 +70,10 @@ const data = [
 const TopSelling = () => {
   return (
     <div className="mb-20">
-      <h2 className="uppercase text-[1.66667vw] font-bold mb-[1.66667vw]">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold mb-[1.66667vw] text-3xl">
         top sellings
       </h2>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 row-span-3 gap-7">
+      <div className="grid lg:grid-cols-4 grid-cols-3 row-span-3 gap-7">
             {fakeProducts.map((e, index) => {
                 return (
                   <CartItem key={index} img={e.thumbnail} name={e.name} price={e.price}/>

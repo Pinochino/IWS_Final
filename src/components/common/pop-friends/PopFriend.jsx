@@ -22,13 +22,12 @@ const PopFriend = () => {
   return (
     <div className="mb-30">
       <div>
-        <h2 className="uppercase text-[1.66667vw] font-bold mb-[1.66667vw]">
-          top sellings
+        <h2 className="uppercase lg:text-[1.66667vw] font-bold mb-[1.66667vw] text-2xl">
+          top buyers
         </h2>
         <div></div>
       </div>
       <Carousel opts={{ align: "start", slidesToScroll: 4, loop: true }}>
-       
         <CarouselContent>
           {data.map((e, index) => {
             return (
@@ -38,8 +37,8 @@ const PopFriend = () => {
             );
           })}
         </CarouselContent>
-           <CarouselPrevious />
-           <CarouselNext />
+        <CarouselPrevious className={"-left-4 -translate-y-5"} />
+        <CarouselNext className={"-right-4 -translate-y-5"} />
       </Carousel>
     </div>
   );

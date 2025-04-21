@@ -8,16 +8,16 @@ const CartItem = ({ img, name, price, outofstock = false }) => {
           <img
             src={img}
             alt="logo"
-            className="w-full h-auto max-w-[16.75rem] object-cover transition-transform duration-300 group-hover:scale-110 bg-[#F6F6F6]"
+            className="w-full h-auto max-w-[100%] object-cover transition-transform duration-300 group-hover:scale-110 bg-[#F6F6F6]"
           />
         </div>
         <div className="p-4 text-sm">
-          <span className="uppercase text-[#EAB329] tracking-wide text-xs">
+          <span className="uppercase text-[#EAB329] tracking-wide lg:text-xs text-2xl">
             pop mart
           </span>
-          <div className="mt-1 font-medium text-gray-800">{name}</div>
+          <div className="mt-1 font-medium text-gray-800 lg:text-sm text-2xl line-clamp-1">{name}</div>
           <div className="mt-2 flex justify-between items-center">
-            <span className="text-[#D20075] font-semibold">
+            <span className="text-[#D20075] font-semibold lg:text-sm text-2xl">
               {price}
               <sup>đ</sup>
             </span>

@@ -64,33 +64,35 @@ const NewArrivals = ({ title, layout = false }) => {
   return (
     <div className="mb-20 w-[100%]">
       <div className="flex justify-between items-center mb-[1.66667vw] w-full ">
-        <h5 className="uppercase text-[#E60021] font-bold text-[1.66667vw] ">
+        <h5 className="uppercase text-[#E60021] font-bold lg:text-[1.66667vw] text-3xl">
           {title}
         </h5>
         <button>
-          <Link className="flex items-center justify-center border-b-2 border-b-[#262626] h-4 cursor-pointer"
+          <Link className="flex items-center justify-center border-b-2 border-b-[#262626] h-4 cursor-pointer
+          pb-2
+          "
           to={'/collection/New Arrival'}
           >
-            <span className="text-xs">More</span>
-            <ChevronRight className="w-[12px]" />
+            <span className="lg:text-xs text-2xl">More</span>
+            <ChevronRight className="lg:w-[12px] w-[2rem]" />
           </Link>
         </button>
       </div>
-      <Carousel className={'w-full'}>
+      <Carousel className={'w-full Carousel1'}>
         <CarouselContent>
           {(isLoading ? Array.from({ length: 4 }) : fakeProducts).map(
             (data, index) => {
               return (
-                <CarouselItem key={index} className="lg:basis-1/4 sm:basis-1/4">
+                <CarouselItem key={index} className="lg:basis-1/4 basis-1/3">
                   {isLoading ? (
                     <Skeleton className="h-[20rem] w-full rounded-lg bg-[#E0E0E0]" />
                   ) : layout ? (
                     <div className="bg-white hover:border-2">
-                      <div className="w-auto h-[16.75rem]">
+                      <div className="w-auto lg:h-[16.75rem] card-item">
                         <img
                           alt={data.name || "Popmart product"}
                           src={data.thumbnail}
-                          className="w-auto h-auto"
+                          className="w-full h-full"
                         />
                       </div>
                       <div className="flex flex-col text-xs font-bold my-4">
@@ -125,8 +127,8 @@ const NewArrivals = ({ title, layout = false }) => {
           )}
         </CarouselContent>
 
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className={'-left-4 -translate-y-14' }/>
+        <CarouselNext  className={'-right-4 -translate-y-14'}/>
       </Carousel>
     </div>
   );

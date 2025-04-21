@@ -99,7 +99,7 @@ const Header = () => {
       </div>
 
       {/* Header Desktop - hiển thị từ md trở lên */}
-      <div className="hidden md:flex justify-center items-center border-b-2 border-b-[#ddd]">
+      <div className="hidden lg:flex justify-center items-center border-b-2 border-b-[#ddd]">
         {isLoading ? (
           <HeaderLoading />
         ) : (

@@ -16,14 +16,14 @@ const SeriesFigures = () => {
 
   return (
     <div className="mb-20 relative">
-      <h2 className="uppercase text-[1.66667vw] font-bold mb-[1.66667vw]">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-3xl mb-5">
         Hirono Echo Series Figures
       </h2>
       <video
       ref={videoRef}
         controls
         poster="https://global-static.popmart.com/globalAdmin/1744278382440____pc____.jpg"
-        className="max-h-[40.5rem] relative"
+        className="lg:max-h-[40.5rem] relative h-[100%] w-[100%]"
       >
         <source
           src="https://global-static.popmart.com/globalAdmin/1744278372912____4月11日____.mp4"

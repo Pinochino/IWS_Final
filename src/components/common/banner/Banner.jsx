@@ -3,7 +3,7 @@ import React from "react";
 const data = ["About POP MART", "POP News"];
 const Banner = () => {
   return (
-    <div className="flex space-x-10 items-center mb-20">
+    <div className="lg:flex space-x-10 items-center mb-20 hidden">
       {data.map((e, index) => {
         return (
           <div

@@ -3,7 +3,7 @@ import React from "react";
 const FooterBody = () => {
   return (
     <footer className="bg-white dark:bg-gray-900">
-    <div className="mx-auto  space-y-8 px-8 py-10 sm:px-6 lg:space-y-16 lg:px-8 max-w-[76rem]">
+    <div className="mx-auto  space-y-8 px-8 py-10 sm:px-6 lg:space-y-16 lg:px-8 lg:max-w-[76rem] w-[100%]">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div>
           <div className="text-teal-600 dark:text-teal-300">
@@ -51,7 +51,7 @@ const FooterBody = () => {
             </svg>
           </div>
   
-          <p className="mt-4 max-w-xs text-gray-500 dark:text-gray-400">
+          <p className="mt-4 max-w-xs text-gray-500 dark:text-gray-400 lg:text-sm text-2xl">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
             molestias.
           </p>
@@ -152,37 +152,37 @@ const FooterBody = () => {
           </ul>
         </div>
   
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4 md:grid-cols-4">
           <div>
-            <p className="font-medium text-gray-900 dark:text-white">Services</p>
+            <p className="font-medium text-gray-900 dark:text-white lg:text-sm text-3xl">Services</p>
   
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   1on1 Coaching
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Company Review
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Accounts Review
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   HR Consulting
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   SEO Optimisation
                 </a>
               </li>
@@ -190,23 +190,23 @@ const FooterBody = () => {
           </div>
   
           <div>
-            <p className="font-medium text-gray-900 dark:text-white">Company</p>
+            <p className="font-medium text-gray-900 dark:text-white lg:text-sm text-3xl">Company</p>
   
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   About
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Meet the Team
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Accounts Review
                 </a>
               </li>
@@ -214,23 +214,23 @@ const FooterBody = () => {
           </div>
   
           <div>
-            <p className="font-medium text-gray-900 dark:text-white">Helpful Links</p>
+            <p className="font-medium text-gray-900 dark:text-white lg:text-sm text-3xl">Helpful Links</p>
   
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Contact
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   FAQs
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Live Chat
                 </a>
               </li>
@@ -238,29 +238,29 @@ const FooterBody = () => {
           </div>
   
           <div>
-            <p className="font-medium text-gray-900 dark:text-white">Legal</p>
+            <p className="font-medium text-gray-900 dark:text-white lg:text-sm text-3xl">Legal</p>
   
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Accessibility
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Returns Policy
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Refund Policy
                 </a>
               </li>
   
               <li>
-                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                <a href="#" className="text-gray-700 transition hover:opacity-75 dark:text-gray-200 lg:text-sm text-2xl">
                   Hiring-3 Statistics
                 </a>
               </li>
@@ -269,7 +269,7 @@ const FooterBody = () => {
         </div>
       </div>
   
-      <p className="text-xs text-gray-500 dark:text-gray-400 border-t-gray-400 border-t-2 pt-5">
+      <p className="lg:text-xs text-gray-500 dark:text-gray-400 border-t-gray-400 border-t-2 pt-5  text-3xl">
         &copy; 2022. Company Name. All rights reserved.
       </p>
     </div>
