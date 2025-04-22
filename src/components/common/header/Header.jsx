@@ -99,15 +99,15 @@ const Header = () => {
       </div>
 
       {/* Header Desktop - hiển thị từ md trở lên */}
-      <div className="hidden lg:flex justify-center items-center border-b-2 border-b-[#ddd]">
+      <div className="hidden lg:flex justify-center items-center border-b-2 border-b-[#ddd] lg:px-0">
         {isLoading ? (
           <HeaderLoading />
         ) : (
-          <div className="lg:w-[94%] h-[4.9rem] flex justify-between items-center">
+          <div className="lg:w-[94%] h-[4.9rem] flex justify-between items-center header">
             <div className="flex items-center flex-[0.5] !sm:w-0.5">
               <ListCharacters />
             </div>
-            <div className="flex-[0.4] flex justify-between items-center">
+            <div className="lg:flex-[0.5]   flex justify-between items-center header-modes">
               <HeaderModes />
             </div>
           </div>

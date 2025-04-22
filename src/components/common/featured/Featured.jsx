@@ -3,7 +3,7 @@ import React from "react";
 const Featured = ({title, imgs}) => {
   return (
     <div className="lg:mb-20 mb-15">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] mb-4 text-5xl">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] mb-4 text-5xl md:text-xl">
         {title}
       </h2>
 

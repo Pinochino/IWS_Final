@@ -16,7 +16,7 @@ const data = [
 const PopularSearches = () => {
   return (
     <div className="lg:mb-20 mb-15">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold mb-[1.66667vw] text-5xl">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold mb-[1.66667vw] text-5xl md:text-xl">
         Popular searches
       </h2>
       <div className="flex flex-wrap gap-4">

@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @font-face {
-  font-family: 'DIN Pro';
-  src: url('/fonts/DINPro-Regular.ttf') format('truetype');
+  font-family: "DIN Pro";
+  src: url("/fonts/DINPro-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'DIN Pro';
-  src: url('../public/fonts/dinpro_black.otf') format('truetype');
+  font-family: "DIN Pro";
+  src: url("../public/fonts/dinpro_black.otf") format("truetype");
   font-weight: 700;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: medium;
   /* overflow: hidden; */
   font-variant: tabular-nums;
@@ -143,16 +143,11 @@ body {
   }
 }
 @media screen and (width: 412px) {
-  
 }
-
-
-
 
 @media screen and (max-width: 380px) {
   .w-common {
     max-width: 20rem;
-  
   }
   .layout {
     margin-left: 1%;
@@ -166,8 +161,6 @@ body {
     width: 90% !important;
   }
 }
-
-
 
 @media screen and (width: 344px) {
   .layout {
@@ -184,10 +177,13 @@ body {
   .Carousel1 .aspect-square > img {
     max-width: 75.5rem;
   }
-  body{
+  body {
     overflow-x: hidden;
   }
-
+  .footer-body {
+    width: 141%;
+    margin-left: 2%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -206,22 +202,92 @@ body {
 
 @media screen and (width: 820px) {
   .layout {
-    width: 10% !important;
+    width: 49.5% !important;
     margin-left: 1.2%;
   }
 }
 
-@media screen and (max-width: 1024px) {
- .w-common {
-  width: 65%;
-  /* margin-right: 30%; */
- }
- body {
-  overflow-x: hidden;
- }
+@media screen and (width: 912px) {
+  .layout {
+    width: 126% !important;
+    margin-left: 1.2%;
+  }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (width: 1024px) and (height: 600px) {
+  .layout {
+    display: block !important;
+    width: 100%;
+    /* margin: 0 30.5%; */
+  }
+  body {
+    overflow-x: hidden;
+  }
+  /* .header {
+  width: 97%;
+ } */
+  .header-modes {
+    flex: 0.5;
+  }
+  .header-modes input {
+    height: 2rem;
+  }
+  footer {
+    min-width: 124%;
+  }
 
+  .footer-header {
+    width: 124%;
+  }
+  .homepage {
+    width: 153%;
+  }
 }
 
+@media screen and (width: 1024px) and (height: 1366px) {
+  .header-modes {
+    flex: 1 !important;
+  }
+  .header-mode-item > *{
+    margin-left: 10px !important;
+  }
+  .App {
+    overflow-x: hidden;
+  }
+  header {
+    width: fit-content;
+  }
+  .homepage {
+    width: 100% !important;
+  }
+  .layout {
+    display: block !important;
+    width: 50%;
+    /* margin: 0 30.5%; */
+  }
+  body {
+    overflow-x: hidden;
+  }
+  /* .header {
+   width: 97%;
+  } */
+
+  .header-modes input {
+    height: 2rem;
+  }
+  footer {
+    min-width: 124%;
+  }
+
+  .footer-header {
+    width: 124%;
+  }
+}
+
+@media screen and (width: 1280px) {
+  footer {
+    width: 114%;
+  }
+}
+
+/* 820 -  */

@@ -62,9 +62,9 @@ const NewArrivals = ({ title, layout = false }) => {
   }, [dispatch]);
 
   return (
-    <div className="lg:mb-20 w-[100%] mb-4 mb-10">
+    <div className="lg:mb-20 w-[100%] mb-10">
       <div className="flex justify-between items-center mb-[1.66667vw] w-full ">
-        <h5 className="uppercase text-[#E60021] font-bold lg:text-[1.66667vw] text-5xl">
+        <h5 className="uppercase text-[#E60021] font-bold lg:text-[1.66667vw] text-5xl md:text-xl">
           {title}
         </h5>
         <button>
@@ -83,7 +83,7 @@ const NewArrivals = ({ title, layout = false }) => {
           {(isLoading ? Array.from({ length: 4 }) : fakeProducts).map(
             (data, index) => {
               return (
-                <CarouselItem key={index} className="lg:basis-1/4 basis-1/2">
+                <CarouselItem key={index} className="lg:basis-1/4 md:basis-1/3 basis-1/2">
                   {isLoading ? (
                     <Skeleton className="h-[20rem] w-full rounded-lg bg-[#E0E0E0]" />
                   ) : layout ? (

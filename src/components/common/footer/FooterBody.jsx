@@ -4,7 +4,7 @@ const FooterBody = () => {
   return (
     <footer className="bg-white dark:bg-gray-900">
     <div className="mx-auto  space-y-8 px-2 py-2 sm:px-6 lg:space-y-16 lg:px-8 lg:py-10 lg:max-w-[76rem] w-[100%]">
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 w-full ">
+      <div className="grid md:grid-cols-2 grid-cols-2 gap-3 lg:grid-cols-3 w-auto md:w-auto footer-body sm:w-[140%] sm:ml-[2rem] md:ml-0">
         <div>
           <div className="text-teal-600 dark:text-teal-300">
             <svg className="h-8" viewBox="0 0 118 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,7 +152,7 @@ const FooterBody = () => {
           </ul>
         </div>
   
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-1 lg:col-span-2 lg:grid-cols-4 md:grid-cols-2 w-full">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-1 lg:col-span-2 lg:grid-cols-4 md:grid-cols-2  w-auto">
           <div>
             <p className="font-medium text-gray-900 dark:text-white lg:text-sm text-base">Services</p>
   

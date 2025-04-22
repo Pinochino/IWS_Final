@@ -29,16 +29,16 @@ const images = [
 const Recommendation = () => {
   return (
     <div className="lg:mb-20 mb-15">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-5xl mb-5">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-5xl mb-5 md:text-xl">
         HIRONO Recommendation
       </h2>
       <Carousel>
         <CarouselContent>
           {images.map((data, index) => {
             return (
-              <CarouselItem key={index} className={"lg:basis-1/3 basis-1/2"}>
+              <CarouselItem key={index} className={"lg:basis-1/3 md:basis-1/3 basis-1/2"}>
                 <img src={data.img} alt="logo" className="w-[100%]" />
-                <span className="lg:text-sm mt-3 text-4xl line-clamp-1 ">{data.name}</span>
+                <span className="lg:text-sm mt-3 text-4xl line-clamp-1 md:text-xl">{data.name}</span>
               </CarouselItem>
             );
           })}

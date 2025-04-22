@@ -22,7 +22,7 @@ const PopFriend = () => {
   return (
     <div className="lg:mb-30 mb-15">
       <div>
-        <h2 className="uppercase lg:text-[1.66667vw] font-bold mb-[1.66667vw] text-5xl">
+        <h2 className="uppercase lg:text-[1.66667vw] font-bold mb-[1.66667vw] text-5xl md:text-xl">
           top buyers
         </h2>
         <div></div>
@@ -31,7 +31,7 @@ const PopFriend = () => {
         <CarouselContent>
           {data.map((e, index) => {
             return (
-              <CarouselItem key={index} className="lg:basis-1/4 basis-1/2">
+              <CarouselItem key={index} className="lg:basis-1/4 md:basis-1/3 basis-1/2">
                 <img src={e} alt="logo" className="w-full h-full" />
               </CarouselItem>
             );

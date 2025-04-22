@@ -8,14 +8,14 @@ const HeaderModes = () => {
   const { items } = useSelector((state) => state.cart);
 
   return (
-    <div className="flex flex-row items-center justify-between flex-1">
+    <div className="flex flex-row items-center justify-between lg:flex-1 header-mode-item">
       <div className="relative">
         <input
           placeholder="Dimoo"
-          className="rounded-2xl bg-[#F4F4F4] h-[2.08333vw] text-xs pl-4 outline-0"
+          className="rounded-2xl bg-[#F4F4F4] h-[2.08333vw] text-xs pl-4 outline-0 lg:h-2rem "
         />
-        <i className="bx bx-search absolute right-2 bottom-2 "></i>
-        <span className="absolute bg-[#EEEEEE] w-0.5 h-[2.60417vw] right-0 bottom-0 translate-x-5"></span>
+        <i className="bx bx-search absolute right-2 bottom-2"></i>
+        <span className="absolute bg-[#EEEEEE] w-0.5 h-[2.60417vw] right-0 bottom-0 translate-x-5 "></span>
       </div>
       <div className="flex flex-row items-center ">
         <img

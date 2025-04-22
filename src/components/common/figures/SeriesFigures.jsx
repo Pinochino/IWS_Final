@@ -16,7 +16,7 @@ const SeriesFigures = () => {
 
   return (
     <div className="lg:mb-20 relative mb-15">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-5xl mb-5">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-5xl mb-5 md:text-xl">
         Hirono Echo Series Figures
       </h2>
       <video
