@@ -28,8 +28,8 @@ const images = [
 
 const Recommendation = () => {
   return (
-    <div className="mb-20">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-3xl mb-5">
+    <div className="lg:mb-20 mb-15">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-5xl mb-5">
         HIRONO Recommendation
       </h2>
       <Carousel>
@@ -38,13 +38,13 @@ const Recommendation = () => {
             return (
               <CarouselItem key={index} className={"lg:basis-1/3 basis-1/2"}>
                 <img src={data.img} alt="logo" className="w-[100%]" />
-                <span className="lg:text-sm leading-8 text-2xl ">{data.name}</span>
+                <span className="lg:text-sm mt-3 text-4xl line-clamp-1 ">{data.name}</span>
               </CarouselItem>
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className={"-left-4 -translate-y-10"} />
-        <CarouselNext className={"-right-4 -translate-y-10"} />
+        <CarouselPrevious className={"-left-4 -translate-y-8"} />
+        <CarouselNext className={"-right-4 -translate-y-8"} />
       </Carousel>
     </div>
   );

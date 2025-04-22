@@ -142,17 +142,50 @@ body {
     @apply bg-background text-foreground;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (width: 412px) {
   
 }
 
+
+
+
+@media screen and (max-width: 380px) {
+  .w-common {
+    max-width: 20rem;
+  
+  }
+  .layout {
+    margin-left: 1%;
+    width: 94% !important;
+  }
+}
+
+@media screen and (width: 360px) {
+  .layout {
+    margin-left: 1%;
+    width: 90% !important;
+  }
+}
+
+
+
+@media screen and (width: 344px) {
+  .layout {
+    margin-left: 1%;
+    width: 86% !important;
+  }
+}
 @media screen and (max-width: 480px) {
   .w-common {
-    max-width: 63rem;
-    margin-left: 2.5rem !important;
+    max-width: 62rem !important;
+    /* margin-left: 2.5rem !important; */
+    width: 38% !important;
   }
   .Carousel1 .aspect-square > img {
     max-width: 75.5rem;
+  }
+  body{
+    overflow-x: hidden;
   }
 
 }
@@ -160,11 +193,32 @@ body {
 @media screen and (max-width: 768px) {
   .w-common {
     margin-left: 1rem;
+    /* width: 47% !important; */
+  }
+}
+
+@media screen and (width: 768px) {
+  .layout {
+    width: 126% !important;
+    margin-left: 1.2%;
+  }
+}
+
+@media screen and (width: 820px) {
+  .layout {
+    width: 10% !important;
+    margin-left: 1.2%;
   }
 }
 
 @media screen and (max-width: 1024px) {
- 
+ .w-common {
+  width: 65%;
+  /* margin-right: 30%; */
+ }
+ body {
+  overflow-x: hidden;
+ }
 }
 
 @media screen and (min-width: 1025px) {

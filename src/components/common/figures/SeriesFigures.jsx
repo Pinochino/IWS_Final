@@ -15,8 +15,8 @@ const SeriesFigures = () => {
 
 
   return (
-    <div className="mb-20 relative">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-3xl mb-5">
+    <div className="lg:mb-20 relative mb-15">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-5xl mb-5">
         Hirono Echo Series Figures
       </h2>
       <video
@@ -32,14 +32,14 @@ const SeriesFigures = () => {
         />
         Your browser does not support the video tag.
       </video>
-      <div className="right-[42%] top-[45%] absolute rounded-[50%] flex justify-center items-center cursor-pointer
+      <div className="lg:right-[42%] lg:top-[45%] right-[25%] top-[42%] absolute rounded-[50%] flex justify-center items-center cursor-pointer
       ">
        <img
        ref={btnVideoRef}
-       src="https://cdn-global.popmart.com/global-mobile/images/icons/video-play-icon.png" alt="" className="max-w-[50%] max-h-[50%]" onClick={playVideo}/>
+       src="https://cdn-global.popmart.com/global-mobile/images/icons/video-play-icon.png" alt="" className="lg:max-w-[50%] lg:max-h-[50%] max-w-[25%] max-h-[25%]" onClick={playVideo}/>
       </div>
       <div className="flex justify-center items-center mt-[1.25vh]">
-        <Button variant="destructive" className={"uppercase"}>
+        <Button variant="destructive" className={"uppercase lg:w-auto lg:h-auto w-[24%] lg:text-base text-sm"}>
           Shop now
         </Button>
       </div>

@@ -15,7 +15,7 @@ const DefaultLayout = ({ children }) => {
     <div className="">
       <Header />
       {/* {isOpen && <CharacterHover />} */}
-      <main className="mt-[8rem]">
+      <main className="lg:mt-[8rem] mt-[5rem] lg:m-0 ">
         <div className=""> {children}</div>
         <div className="fixed bottom-4 right-4 z-50 pger">
           {ad && (

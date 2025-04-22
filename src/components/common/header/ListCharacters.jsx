@@ -86,7 +86,7 @@ const ListCharacters = () => {
         <img
           src="https://cdn-global-eude.popmart.com/global-web/eude-prod/assets/images/logo.png?x-oss-process=image/format,webp"
           alt="logo"
-          className="w-[5.5rem] h-[1.75rem] mr-10"
+          className="lg:w-[5.5rem] lg:h-[1.75rem] mr-10 w-[1rem] h-[1rem]"
         />
    </Link>
 

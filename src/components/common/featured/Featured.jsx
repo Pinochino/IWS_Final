@@ -2,16 +2,16 @@ import React from "react";
 
 const Featured = ({title, imgs}) => {
   return (
-    <div className="mb-20">
-      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] text-3xl  mb-5">
+    <div className="lg:mb-20 mb-15">
+      <h2 className="uppercase lg:text-[1.66667vw] font-bold lg:mb-[1.66667vw] mb-4 text-5xl">
         {title}
       </h2>
 
-      <div className="grid lg:grid-cols-2 lg:gap-5 gap-10 sm:grid-cols-1 md:grid-cols-2 w-full ">
+      <div className="grid lg:grid-cols-2 lg:gap-5 gap-6 sm:grid-cols-1 md:grid-cols-2 w-full ">
         <div>
           <img src={imgs.one} alt="logo" className="w-[100%]" />
         </div>
-        <div className="flex flex-col justify-between  lg:gap-5 gap-10">
+        <div className="flex flex-col justify-between  lg:gap-5 gap-6">
           <div>
             <img src={imgs.two} alt="logo" className="w-[100%] " />
           </div>
