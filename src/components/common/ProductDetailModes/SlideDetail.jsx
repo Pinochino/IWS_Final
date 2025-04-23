@@ -23,8 +23,8 @@ const SlideDetail = ({images}) => {
     setImg(images[index]);
   };
   return (
-    <div className="flex gap-2.5">
-      <div className="flex flex-col items-center max-w-[4.4375rem] gap-3.5">
+    <div className="lg:flex gap-2.5 block bg-red-400">
+      <div className="lg:flex flex-col items-center sm:max-w-[4.4375rem] gap-3.5 hidden lg:visible">
         {images.map((img, index) => {
           return (
             <img
@@ -36,7 +36,7 @@ const SlideDetail = ({images}) => {
           );
         })}
       </div>
-      <div className="flex-1 w-full">
+      <div className="lg:flex-1 w-auto h-auto sm:w-[50%] sm:h-[50%] flex-none">
         <img
           src={img}
           alt="logo"

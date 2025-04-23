@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { addItemToCart } from "@/redux/reducers/CartReducer";
 import AddQuantityBtn from "../AddQuantityBtn/AddQuantityBtn";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const dataAccordion = [
   {
@@ -50,62 +50,76 @@ const ProductInformation = () => {
   }, [msg]);
 
   return (
-    <div className="">
+    <div className="bg-purple-400 lg:w-auto w-[94%]">
       {msg && (
-        <Alert className="mb-4 absolute right-6 max-w-[12%]  bg-[#333333] max-h-[5%] flex items-center -translate-y-10 transition-all duration-500 ease-in-out" >
-          <AlertDescription className={'flex items-center justify-between'}>
-            <span className="text-xs mr-6">Added to cart</span>
-           <Link to={'/cart'}> <Button variant={'destructive'} className={'h-5 w-12'}>View</Button></Link>
+        <Alert className="mb-4 absolute right-6 max-w-[12%]  bg-[#333333] max-h-[5%] flex items-center -translate-y-10 transition-all duration-500 ease-in-out">
+          <AlertDescription className={"flex items-center justify-between"}>
+            <span className="lg:text-xs mr-6 text-6xl">Added to cart</span>
+            <Link to={"/cart"}>
+              {" "}
+              <Button variant={"destructive"} className={"h-5 w-12"}>
+                View
+              </Button>
+            </Link>
           </AlertDescription>
         </Alert>
       )}
-      <div className="flex items-center justify-between">
-        <h3 className="text-[1.45833vw] text-[#000] font-bold">
+      <div className="flex items-center justify-between mb-10 lg:mb-0">
+        <h3 className="lg:text-[1.45833vw] text-[#000] font-bold text-7xl ">
           Peach Riot Witchy Punk Figures
         </h3>
-        <i className="bx bx-heart text-xl"></i>
+        <i className="bx bx-heart lg:text-xl text-7xl"></i>
       </div>
-      <span className="mt-[1.25vw] text-[#d2001e] text-[1.25vw]">
+      <span className="mt-[1.25vw] text-[#d2001e] lg:text-[1.25vw] text-6xl ">
         1.520.000 <sup>đ</sup>
       </span>
-      <div>
-        <span className="text-base font-normal">Quantity</span>
-        <AddQuantityBtn className={"mt-3"} />
+      <div className="lg:my-0 my-10">
+        <span className="lg:text-base font-normal text-6xl ">Quantity</span>
+        <AddQuantityBtn className={"lg:mt-3 mt-10 w-auto h-auto"} />
       </div>
-      <div className="flex gap-[0 .3125vw] justify-between items-center mt-5 pb-5 border-b-2 border-b-[#DDDDDD]">
+      <div className="flex lg:flex-row gap-[0 .3125vw] lg:justify-between justify-center flex-col flex-wrap items-center mt-5 lg:pb-5 pb-10 border-b-2 border-b-[#DDDDDD]
+      lg:space-y-0
+      space-y-10
+      
+      ">
         <Button
           className={
-            "uppercase w-[11.5625vw] h-[3.125vw] text-white cursor-pointer font-bold text-[.83333vw]"
+            "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] text-white cursor-pointer font-bold lg:text-[.83333vw] text-5xl w-[100%] h-auto"
           }
           onClick={handleAddItemToCart}
         >
           add to cart
         </Button>
-      <Link to={'/payment'}>
+        <Link to={"/payment"} className="lg:w-auto w-[100%]">
           <Button
             className={
-              "uppercase w-[11.5625vw] h-[3.125vw] text-white cursor-pointer font-bold text-[.83333vw] bg-[#d2001e]"
+              "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] w-[100%] h-auto text-white cursor-pointer font-bold lg:text-[.83333vw] bg-[#d2001e] text-5xl"
             }
           >
             Buy now
           </Button>
-      </Link>
+        </Link>
       </div>
       {dataAccordion.map((item, index) => (
         <div key={index} className={"border-b-2 border-b-[#DDDDDD]"}>
           <Accordion type="single" collapsible>
             <AccordionItem value={`item-${index}`}>
-              <AccordionTrigger>{item.title}</AccordionTrigger>
-              <AccordionContent>
+              <AccordionTrigger className={"lg:text-base text-6xl"}>
+                {item.title}
+              </AccordionTrigger>
+              <AccordionContent className={'lg:block flex flex-col'}>
                 {item.data.map((line, i) => (
-                  <span key={i} className="text-[.83333vw] font-normal">
+                  <span
+                    key={i}
+                    className="lg:text-[.83333vw] font-normal text-5xl lg:mb-0 mb-10"
+                  >
                     {line}
                   </span>
                 ))}
                 <div className="flex justify-between">
                   {item.outlinedText.map((text, i) => (
                     <div key={i}>
-                      <span className="text-[.83333vw] font-normal underline">
+                      <span className="lg:text-[.83333vw] font-normal underline text-5xl">
                         {text}
                       </span>
                     </div>

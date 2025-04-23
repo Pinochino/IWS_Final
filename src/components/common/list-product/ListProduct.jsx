@@ -116,7 +116,7 @@ const data = [
 
 const ListProduct = () => {
   return (
-    <div className="flex-[0.8] max-w-[72rem] mb-20">
+    <div className="flex-[0.8] lg:max-w-[75%] w-auto mb-20">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 row-span-5 gap-7 mb-10">
         {fakeProducts.map((e, index) => {
           return (

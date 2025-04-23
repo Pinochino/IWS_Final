@@ -29,22 +29,22 @@ const ProductDetailPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center w-fit lg:w-auto">
       {isLoading ? (
         <div className="h-full min-h-[30rem]"><Spinner /></div>
       ) : (
-        <div className="w-[63.5%]">
+        <div className="lg:w-[63.5%] w-[100%] sm:w-[]">
           <CustomBreadcum name={product.name} />
-          <div className="flex justify-between flex-wrap gap-10 mb-20 flex-col lg:flex-row">
+          <div className="lg:flex justify-between flex-wrap gap-10 mb-20 flex-col lg:flex-row w-auto block ">
             <div className="flex-[0.6]">
               <SlideDetail images={product.images} />
             </div>
-            <div className="flex-[0.4]">
+            <div className="flex-[0.4] lg:block flex justify-center items-center w-[97%]">
               <ProductInformation />
             </div>
           </div>
           <BannerProduct images={product.details} />
-          <NewArrivals title={"you may also like"} images={arrivalImages} />
+          <NewArrivals title={"you may also like"} images={arrivalImages} className="w-[90%] lg:w-auto mt-0 mx-auto ml-[3%]" />
         </div>
       )}
     </div>

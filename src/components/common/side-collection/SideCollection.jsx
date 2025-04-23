@@ -14,7 +14,7 @@ const SideCollection = () => {
   const imageSrc = 'https://prod-eurasian-res.popmart.com/default/20241030_141739_676860____1_____1200x1200.jpg?x-oss-process=image/resize,p_40,format,webp,format,webp';
   const name = 'Figure'
   return (
-    <div className=" flex-[0.2] max-w-[12.4375rem]">
+    <div className=" flex-[0.2] max-w-[12.4375rem] lg:visible hidden ">
       <div className="border-b-2 border-b-gray-300 pb-2">
         <h5 className="text-[.83333vw] text-[#000] font-bold mb-4">Category</h5>
         {categories.map((item, index) => {

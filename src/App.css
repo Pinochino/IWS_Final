@@ -207,6 +207,50 @@ body {
   }
 }
 
+@media screen and (width: 853px) and (height: 1280px) {
+  .App {
+    overflow: hidden;
+  }
+  .homepage {
+    width: 70%;
+  }
+  .footer-body{
+    width: fit-content;
+  }
+  .input-header {
+    width: 10%;
+    height: 10% ;
+    margin-left: 1rem;
+  }
+  .bx.bx-menu {
+    font-size: 3rem;
+  }
+  .bx.bx-search {
+    font-size: 3rem;
+  }
+}
+
+
+@media screen and (width: 820px) and (height: 1180px) {
+  .App {
+    overflow: hidden !important;
+  }
+  .footer-body{
+    width: fit-content;
+  }
+  .input-header {
+    width: 89%;
+    height: 10% ;
+    margin-left: 1rem;
+  }
+  .bx.bx-menu {
+    font-size: 3rem;
+  }
+  .bx.bx-search {
+    font-size: 3rem;
+  }
+}
+
 @media screen and (width: 912px) {
   .layout {
     width: 126% !important;
@@ -284,8 +328,14 @@ body {
   }
 }
 
-@media screen and (width: 1280px) {
+@media screen and (width: 1280px) and (height: 800px) {
   footer {
+    width: 114%;
+  }
+  .homepage{
+    width: 130%;
+  }
+  .footer-header{
     width: 114%;
   }
 }
