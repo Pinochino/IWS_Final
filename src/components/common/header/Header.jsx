@@ -54,9 +54,12 @@ const HeaderMobile = () => {
             className="rounded-2xl bg-[#F4F4F4] text-4xl pl-4 outline-0 w-auto h-auto min-w-[30rem]
           sm:min-w-auto
           input-header
-          min-h-[6rem] ml-[5rem]"
+          min-h-[6rem] ml-[5rem]
+         "
           />
-          <i className="bx bx-search absolute right-2 bottom-2 md:right-5 md:bottom-5 text-7xl"></i>
+          <i className="bx bx-search absolute right-2 bottom-2 md:right-5 md:bottom-3 text-7xl
+          text-[#999999]
+          "></i>
         </div>
       </div>
       <div className="flex items-center space-x-5 justify-between">

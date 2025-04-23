@@ -65,16 +65,16 @@ const ProductInformation = () => {
         </Alert>
       )}
       <div className="flex items-center justify-between mb-10 lg:mb-0">
-        <h3 className="lg:text-[1.45833vw] text-[#000] font-bold text-7xl ">
+        <h3 className="lg:text-[1.45833vw] text-[#000] font-bold text-7xl md:text-4xl ">
           Peach Riot Witchy Punk Figures
         </h3>
-        <i className="bx bx-heart lg:text-xl text-7xl"></i>
+        <i className="bx bx-heart lg:text-xl text-7xl hidden lg:visible "></i>
       </div>
-      <span className="mt-[1.25vw] text-[#d2001e] lg:text-[1.25vw] text-6xl ">
+      <span className="mt-[1.25vw] text-[#d2001e] lg:text-[1.25vw] text-6xl md:text-3xl">
         1.520.000 <sup>đ</sup>
       </span>
       <div className="lg:my-0 my-10">
-        <span className="lg:text-base font-normal text-6xl ">Quantity</span>
+        <span className="lg:text-base font-normal text-6xl md:text-3xl">Quantity</span>
         <AddQuantityBtn className={"lg:mt-3 mt-10 w-auto h-auto"} />
       </div>
       <div className="flex lg:flex-row gap-[0 .3125vw] lg:justify-between justify-center flex-col flex-wrap items-center mt-5 lg:pb-5 pb-10 border-b-2 border-b-[#DDDDDD]
@@ -84,7 +84,7 @@ const ProductInformation = () => {
       ">
         <Button
           className={
-            "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] text-white cursor-pointer font-bold lg:text-[.83333vw] text-5xl w-[100%] h-auto"
+            "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] text-white cursor-pointer font-bold lg:text-[.83333vw] text-5xl w-[100%] h-auto md:text-3xl"
           }
           onClick={handleAddItemToCart}
         >
@@ -93,7 +93,7 @@ const ProductInformation = () => {
         <Link to={"/payment"} className="lg:w-auto w-[100%]">
           <Button
             className={
-              "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] w-[100%] h-auto text-white cursor-pointer font-bold lg:text-[.83333vw] bg-[#d2001e] text-5xl"
+              "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] w-[100%] h-auto text-white cursor-pointer font-bold lg:text-[.83333vw] bg-[#d2001e] text-5xl md:text-3xl"
             }
           >
             Buy now
@@ -104,14 +104,14 @@ const ProductInformation = () => {
         <div key={index} className={"border-b-2 border-b-[#DDDDDD]"}>
           <Accordion type="single" collapsible>
             <AccordionItem value={`item-${index}`}>
-              <AccordionTrigger className={"lg:text-base text-6xl"}>
+              <AccordionTrigger className={"lg:text-base text-6xl md:text-3xl"}>
                 {item.title}
               </AccordionTrigger>
               <AccordionContent className={'lg:block flex flex-col'}>
                 {item.data.map((line, i) => (
                   <span
                     key={i}
-                    className="lg:text-[.83333vw] font-normal text-5xl lg:mb-0 mb-10"
+                    className="lg:text-[.83333vw] font-normal text-5xl lg:mb-0 mb-10 md:text-3xl"
                   >
                     {line}
                   </span>
@@ -119,7 +119,7 @@ const ProductInformation = () => {
                 <div className="flex justify-between">
                   {item.outlinedText.map((text, i) => (
                     <div key={i}>
-                      <span className="lg:text-[.83333vw] font-normal underline text-5xl">
+                      <span className="lg:text-[.83333vw] font-normal underline text-5xl md:text-3xl">
                         {text}
                       </span>
                     </div>

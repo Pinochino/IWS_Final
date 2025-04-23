@@ -36,11 +36,11 @@ const SlideDetail = ({images}) => {
           );
         })}
       </div>
-      <div className="lg:flex-1 w-auto h-auto sm:w-[50%] sm:h-[50%] flex-none">
+      <div className="lg:flex-1 w-auto h-auto sm:w-[50%] sm:h-[50%] flex-none image-detail-product">
         <img
           src={img}
           alt="logo"
-          className="w-full h-auto bg-[#F6F6F6] cursor-crosshair"
+          className="w-full h-auto bg-[#F6F6F6] cursor-crosshair "
         />
       </div>
     </div>

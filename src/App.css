@@ -145,6 +145,15 @@ body {
 @media screen and (width: 412px) {
 }
 
+@media screen and (width: 344px) {
+  .detail-page {
+    width: 88%;
+    margin-right: 11% !important;
+  }
+}
+
+
+
 @media screen and (max-width: 380px) {
   .w-common {
     max-width: 20rem;
@@ -153,12 +162,28 @@ body {
     margin-left: 1%;
     width: 94% !important;
   }
+  .detail-page {
+    margin-right: 3%;
+  }
+  .product-infomation {
+    margin-left: 1%;
+  }
 }
 
 @media screen and (width: 360px) {
   .layout {
     margin-left: 1%;
     width: 90% !important;
+  }
+  .detail-page {
+    width: 94%;
+    margin-right: 5%;
+  }
+  .product-infomation {
+    margin-left: 0%;
+  }
+  .banner-product {
+    margin-right: 3%;
   }
 }
 
@@ -184,12 +209,27 @@ body {
     width: 141%;
     margin-left: 2%;
   }
+  .product-infomation {
+    margin-left: 2%;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 540px) and (max-width: 768px) {
   .w-common {
     margin-left: 1rem;
     /* width: 47% !important; */
+  }
+  .image-detail-product {
+    width: auto;
+  }
+  .detail-page {
+    /* margin-left: 28%; */
+  }
+  .product-infomation {
+    margin-left: 2%;
+  }
+  .new-arrival {
+    margin-left: 5%;
   }
 }
 
@@ -198,6 +238,9 @@ body {
     width: 126% !important;
     margin-left: 1.2%;
   }
+  .product-detail-page {
+    width: 260%;
+  }
 }
 
 @media screen and (width: 820px) {
@@ -205,6 +248,17 @@ body {
     width: 49.5% !important;
     margin-left: 1.2%;
   }
+  .detail-page {
+    width: 47%;
+    margin-right: 48%;
+  }
+  .image-detail-product {
+    width: auto;
+  }
+  .product-infomation {
+    width: auto;
+  }
+
 }
 
 @media screen and (width: 853px) and (height: 1280px) {
@@ -256,6 +310,18 @@ body {
     width: 126% !important;
     margin-left: 1.2%;
   }
+  .product-detail-page {
+    width: 220%;
+  }
+  .image-detail-product {
+    width: auto;
+  }
+  .product-infomation {
+    margin-left: 1%;
+  }
+  .new-arrival {
+    margin-left: 6%;
+  }
 }
 
 @media screen and (width: 1024px) and (height: 600px) {
@@ -284,6 +350,9 @@ body {
     width: 124%;
   }
   .homepage {
+    width: 153%;
+  }
+  .product-detail-page {
     width: 153%;
   }
 }
@@ -337,6 +406,9 @@ body {
   }
   .footer-header{
     width: 114%;
+  }
+  .product-detail-page {
+    width: 129%;
   }
 }
 

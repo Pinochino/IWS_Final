@@ -2,7 +2,7 @@ import React from "react";
 
 const BannerProduct = ({ images }) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center banner-product">
       <div className="mb-20">
         {images.map((img, index) => {
           return (
