@@ -9,13 +9,14 @@ import Recommendation from "@/components/common/recommendation/Recommendation";
 import TopSelling from "@/components/common/top-sellings/TopSelling";
 import { featuredData } from "@/data/WebData";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
   return (
     <div className="lg:flex justify-center items-center w-fit mt-0 sm:mt-[3rem] homepage lg:w-auto">
       <div className="lg:max-w-[75%]  ml-[0.9%] lg:w-auto lg:ml-0 layout ">
         <CustomCarousel />
-        <NewArrivals title={'New Arrival'} />
+        <NewArrivals title={"New Arrival"} />
         <Recommendation />
         <SeriesFigures />
         {featuredData.map((data, index) => {

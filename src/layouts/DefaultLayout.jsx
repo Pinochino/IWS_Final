@@ -4,6 +4,7 @@ import Header from "@/components/common/header/Header";
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 const DefaultLayout = ({ children }) => {
   const [ad, setAd] = useState(true);
@@ -15,6 +16,7 @@ const DefaultLayout = ({ children }) => {
     <div className="">
       <Header />
       {/* {isOpen && <CharacterHover />} */}
+      <ToastContainer />
       <main className="lg:mt-[8rem] mt-[5rem] lg:m-0 ">
         <div className=""> {children}</div>
         <div className="fixed bottom-4 right-4 z-50 pger">

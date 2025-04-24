@@ -112,7 +112,7 @@ const Header = () => {
             <div className="flex items-center flex-[0.5] !sm:w-0.5">
               <ListCharacters />
             </div>
-            <div className="lg:flex-[0.5]   flex justify-between items-center header-modes">
+            <div className="lg:flex-[0.4]   flex justify-between items-center header-modes">
               <HeaderModes />
             </div>
           </div>
