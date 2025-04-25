@@ -10,6 +10,8 @@ import LinePage from "~/pages/Line";
 import PiePage from "~/pages/Pie";
 import Team from "~/pages/Team";
 import Dashboard from "~/scenes/dashboard";
+import LoginPage from "~/pages/Login";
+import RegisterPage from "~/pages/Register";
 
 const publicRoutes = [
   {
@@ -56,6 +58,14 @@ const publicRoutes = [
     path: routeConfig.geography,
     component: GeographyPage
   },
+  {
+    path: routeConfig.login,
+    component: LoginPage,
+  }, 
+  {
+    path: routeConfig.register,
+    component: RegisterPage,
+  }, 
 ];
 
 const privateRoutes = []

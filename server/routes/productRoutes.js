@@ -30,17 +30,10 @@ router.post("/create", protect, isAdmin, async (req, res) => {
                             description,
                             price,
                             discountPrice,
-                            countInStock,
+                            quantity,
                             category,
                             character,
-                            material,
                             images,
-                            isFeatured,
-                            isPublished,
-                            tags,
-                            dimensions,
-                            weight,
-                            sku,
                         } = productData;
 
                         // Validation for each product
@@ -62,17 +55,6 @@ router.post("/create", protect, isAdmin, async (req, res) => {
                             continue;
                         }
 
-                        // Check if SKU already exists
-                        if (sku) {
-                            const existingProduct = await Product.findOne({ sku });
-                            if (existingProduct) {
-                                errors.push({
-                                    product: productData,
-                                    error: "SKU already exists"
-                                });
-                                continue;
-                            }
-                        }
 
                         if (typeof price !== 'number' || (discountPrice && typeof discountPrice !== 'number')) {
                             errors.push({
@@ -111,44 +93,15 @@ router.post("/create", protect, isAdmin, async (req, res) => {
                             }
                         }
 
-                        // Validate dimensions if provided
-                        if (dimensions) {
-                            if (typeof dimensions.length !== 'number' || 
-                                typeof dimensions.width !== 'number' || 
-                                typeof dimensions.height !== 'number') {
-                                errors.push({
-                                    product: productData,
-                                    error: "Dimensions must be numbers"
-                                });
-                                continue;
-                            }
-                        }
-
-                        // Validate weight if provided
-                        if (weight && typeof weight !== 'number') {
-                            errors.push({
-                                product: productData,
-                                error: "Weight must be a number"
-                            });
-                            continue;
-                        }
 
                         const product = new Product({
                             name,
                             description,
                             price,
                             discountPrice,
-                            countInStock,
+                            quantity,
                             category,
-                            character,
-                            material,
                             images,
-                            isFeatured,
-                            isPublished,
-                            tags,
-                            dimensions,
-                            weight,
-                            sku,
                             user: req.user._id,
                         });
 

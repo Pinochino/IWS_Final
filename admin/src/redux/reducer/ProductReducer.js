@@ -1,4 +1,4 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   loading: false,
@@ -23,3 +23,6 @@ const productSlice = createSlice({
     },
   },
 });
+
+export const {createProductStart, createProductFail, createProductSuccess} = productSlice.actions;
+export const productReducer = productSlice.reducer;

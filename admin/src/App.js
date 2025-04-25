@@ -1,4 +1,4 @@
-import { Box, CssBaseline,  ThemeProvider } from "@mui/material";
+import {  CssBaseline,  ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import classNames from "classnames/bind";
 import styles from "./index.css"; // Ensure the use of CSS modules

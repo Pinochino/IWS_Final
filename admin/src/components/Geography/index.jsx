@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Box, colors } from "@mui/material";
+import { Box } from "@mui/material";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import { mockGeographyData } from "~/data/mockData";
 import { geoFeatures } from "~/data/mockGeoFeature";

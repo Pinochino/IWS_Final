@@ -10,6 +10,8 @@ const routes = {
     calendar: '/calendar',
     bar: '/bar',
     geography: '/geography',
+    login: '/login',
+    register: '/register',
 
 }
 export default routes;
