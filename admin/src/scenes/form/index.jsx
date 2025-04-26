@@ -8,6 +8,7 @@ import Header from "~/components/Header";
 import { createProductFail, createProductStart, createProductSuccess } from "~/redux/reducer/ProductReducer";
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
+import { jwtDecode } from "jwt-decode";
 
 
 const initialValues = {
@@ -23,30 +24,20 @@ const initialValues = {
   isPublished: false,
 };
 
-const checkoutSchema = yup.object().shape({
-  name: yup.string().required("Required"),
-  price: yup.number().required("Required"),
-  category: yup.string().required("Required"),
-  character: yup.string().required("Required"),
-  description: yup.string().required("Required"),
-  images: yup.array().of(yup.string().url("Must be a valid URL")).min(1, "At least one image URL"),
-  countInStock: yup.number().required("Required"),
-  sku: yup.string().required("Required"),
-  isFeatured: yup.boolean().required("Required"),
-  isPublished: yup.boolean().required("Required"),
-});
+
 
 function FormPage() {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
-  console.log(user);
+  const { user } = useSelector((state) => state.user.login.user);
+  console.log("User:" ,user);
 
 
  const handleCreateProduct = async (values, { resetForm }) => {
   const API = `/api/products/create`;
   dispatch(createProductStart());
+
 
   const newData = {
     name: values.name,
@@ -59,15 +50,11 @@ function FormPage() {
     sku: values.sku,
     isFeatured: values.isFeatured,
     isPublished: values.isPublished,
+    user: user._id
   };
 
   try {
-    const token = Cookies.get('token');
-    const product = await handleAPI(API, "post", newData, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
+    const product = await handleAPI(API, "post", newData);
 
     dispatch(createProductSuccess(product));
 
@@ -114,7 +101,6 @@ function FormPage() {
       <Formik
         onSubmit={handleCreateProduct}
         initialValues={initialValues}
-        validationSchema={checkoutSchema}
       >
         {({
           values,

@@ -18,6 +18,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { tokens } from "~/theme";
 import images from "~/assets/images";
 import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -43,7 +44,7 @@ const SideBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 // Get the user from the Redux state
-const user = useSelector((state) => state.user.user);
+const {user} = useSelector((state) => state.user);
 console.log(user);
 
 
