@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -17,8 +17,9 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { tokens } from "~/theme";
 import images from "~/assets/images";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
+import { logout } from "~/redux/reducer/UserReducer";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -46,6 +47,18 @@ const SideBar = () => {
 // Get the user from the Redux state
 const {user} = useSelector((state) => state.user);
 console.log(user);
+const dispatch = useDispatch();
+const navigate = useNavigate();
+
+const handleLogout =  async() => {
+  try {
+    Cookies.remove("token");
+  dispatch(logout()); // set user về null
+  navigate("/login");
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
 
@@ -141,7 +154,7 @@ console.log(user);
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="Manage Product"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
@@ -170,7 +183,7 @@ console.log(user);
               Pages
             </Typography>
             <Item
-              title="Profile Form"
+              title="Product Form"
               to="/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
@@ -227,6 +240,7 @@ console.log(user);
               setSelected={setSelected}
             />
           </Box>
+          <button onClick={handleLogout}>Log out</button>
         </Menu>
       </ProSidebar>
     </Box>

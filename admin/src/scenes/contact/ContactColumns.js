@@ -1,5 +1,5 @@
 const ContactColumns = [
-    { field: "id", headerName: "ID" },
+    { field: "_id", headerName: "ID" },
     {
       field: "name",
       headerName: "Name",
@@ -14,42 +14,18 @@ const ContactColumns = [
       editable: true,
     },
     {
-      field: "age",
-      headerName: "Age",
+      field: "lastLogin",
+      headerName: "Last Login",
       type: "number",
       headerAlign: "left",
       align: "left",
       editable: true,
     },
     {
-      field: "phone",
-      headerName: "Phone",
+      field: "role",
+      headerName: "Role",
       flex: 1,
       editable: true,
-    },
-    {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-      editable: true,
-    },
-    {
-        field: "city",
-        headerName: "City",
-        flex: 1,
-        editable: true,
-      }, 
-      {
-        field: "zipCode",
-        headerName: "Zip Code",
-        flex: 1,
-        editable: true,
-      },
-      {
-        field: "registrarId",
-        headerName: "Registrar Id",
-        flex: 1,
-        editable: true,
-      },
+    }
   ];
 export default ContactColumns;

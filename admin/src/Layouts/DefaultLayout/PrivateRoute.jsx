@@ -2,8 +2,9 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ children }) => {
-    const user = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user.login.user);
     console.log(user);
+
   
     
     // Nếu người dùng chưa đăng nhập, điều hướng về trang đăng nhập

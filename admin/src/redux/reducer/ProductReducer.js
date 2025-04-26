@@ -1,9 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  loading: false,
-  error: null,
-  product: null,
+  createProduct: {
+    loading: false,
+    error: null,
+    product: null,
+  },
+  getAllProducts: {
+    loading: false,
+    error: null,
+    product: null,
+  },
 };
 
 const productSlice = createSlice({
@@ -11,18 +18,36 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     createProductStart: (state) => {
-      state.loading = true;
+      state.createProduct.loading = true;
     },
     createProductSuccess: (state, actions) => {
-      state.loading = false;
-      state.product = actions.payload;
+      state.createProduct.loading = false;
+      state.createProduct.product = actions.payload;
     },
     createProductFail: (state, actions) => {
-      state.loading = false;
-      state.error = actions.payload;
+      state.createProduct.loading = false;
+      state.createProduct.error = actions.payload;
+    },
+    getAllProductStart: (state) => {
+      state.getAllProducts.loading = true;
+    },
+    getAllProductSuccess: (state, actions) => {
+      state.getAllProducts.loading = false;
+      state.getAllProducts.product = actions.payload;
+    },
+    getAllProductFail: (state, actions) => {
+      state.getAllProducts.loading = false;
+      state.getAllProducts.error = actions.payload;
     },
   },
 });
 
-export const {createProductStart, createProductFail, createProductSuccess} = productSlice.actions;
+export const {
+  createProductStart,
+  createProductFail,
+  createProductSuccess,
+  getAllProductStart,
+  getAllProductSuccess,
+  getAllProductFail,
+} = productSlice.actions; 
 export const productReducer = productSlice.reducer;

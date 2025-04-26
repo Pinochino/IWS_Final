@@ -12,6 +12,7 @@ import { addItemToCart } from "@/redux/reducers/CartReducer";
 import AddQuantityBtn from "../AddQuantityBtn/AddQuantityBtn";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const dataAccordion = [
   {
@@ -31,7 +32,7 @@ Expedited Shipping (3-7 working days)
   },
 ];
 
-const ProductInformation = () => {
+const ProductInformation = ({product}) => {
   const [msg, setMsg] = useState(false);
   const dispatch = useDispatch();
 
@@ -65,23 +66,27 @@ const ProductInformation = () => {
         </Alert>
       )}
       <div className="flex items-center justify-between mb-10 lg:mb-0">
-        <h3 className="lg:text-[1.45833vw] text-[#000] font-bold text-7xl md:text-4xl ">
-          Peach Riot Witchy Punk Figures
+        <h3 className="lg:text-[1.45833vw] text-[#000] font-bold text-7xl md:text-3xl ">
+         {product.name}
         </h3>
         <i className="bx bx-heart lg:text-xl text-7xl hidden lg:visible "></i>
       </div>
       <span className="mt-[1.25vw] text-[#d2001e] lg:text-[1.25vw] text-6xl md:text-3xl">
-        1.520.000 <sup>đ</sup>
+        {product.price} <sup>đ</sup>
       </span>
       <div className="lg:my-0 my-10">
-        <span className="lg:text-base font-normal text-6xl md:text-3xl">Quantity</span>
+        <span className="lg:text-base font-normal text-6xl md:text-3xl">
+          Quantity
+        </span>
         <AddQuantityBtn className={"lg:mt-3 mt-10 w-auto h-auto"} />
       </div>
-      <div className="flex lg:flex-row gap-[0 .3125vw] lg:justify-between justify-center flex-col flex-wrap items-center mt-5 lg:pb-5 pb-10 border-b-2 border-b-[#DDDDDD]
+      <div
+        className="flex lg:flex-row gap-[0 .3125vw] lg:justify-between justify-center flex-col flex-wrap items-center mt-5 lg:pb-5 pb-10 border-b-2 border-b-[#DDDDDD]
       lg:space-y-0
       space-y-10
       
-      ">
+      "
+      >
         <Button
           className={
             "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] text-white cursor-pointer font-bold lg:text-[.83333vw] text-5xl w-[100%] h-auto md:text-3xl"
@@ -107,7 +112,7 @@ const ProductInformation = () => {
               <AccordionTrigger className={"lg:text-base text-6xl md:text-3xl"}>
                 {item.title}
               </AccordionTrigger>
-              <AccordionContent className={'lg:block flex flex-col'}>
+              <AccordionContent className={"lg:block flex flex-col"}>
                 {item.data.map((line, i) => (
                   <span
                     key={i}

@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://some-domain.com/api/",
-  timeout: 1000,
+  baseURL: "http://localhost:2025",
+  timeout: 5000,
   headers: { "X-Custom-Header": "foobar" },
+  withCredentials: true,
 });
 // Add a request interceptor
 axiosClient.interceptors.request.use(

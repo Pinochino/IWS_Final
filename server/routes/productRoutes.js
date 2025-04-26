@@ -484,7 +484,7 @@ router.get("/",async (req,res)=>{
 //@access Public
 router.get("/best-seller", async(req,res)=>{
     try {
-        const bestSeller= await Product.findOne().sort({rating:-1}); //doi thanh ordercount
+        const bestSeller= await Product.find().sort({rating:-1}); //doi thanh ordercount
         if(bestSeller){
             res.json(bestSeller);
         }else{

@@ -1,16 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const images = [
-  "https://prod-eurasian-res.popmart.com/default/20241211_171454_221194____1_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
-  "https://prod-eurasian-res.popmart.com/default/20241211_171454_127564____2_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
-  "https://prod-eurasian-res.popmart.com/default/20241211_171454_080342____3_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
-  "https://prod-eurasian-res.popmart.com/default/20241211_171454_506330____4_____1200x1200.jpg?x-oss-process=image/resize,p_30,format,webp,format,webp",
-];
-
-const SlideDetail = ({images}) => {
-  const [img, setImg] = useState(images[0]);
+const SlideDetail = ({ images }) => {
+  const [img, setImg] = useState("");
   const [backgroundPosition, setBackgroundPosition] = useState("center");
+
+  useEffect(() => {
+    if (Array.isArray(images) && images.length > 0) {
+      setImg(images[0].url);
+    }
+  }, [images]);
 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
@@ -20,28 +18,37 @@ const SlideDetail = ({images}) => {
   };
 
   const handleClick = (index) => {
-    setImg(images[index]);
+    if (Array.isArray(images)) {
+      setImg(images[index].url);
+    }
   };
+
   return (
     <div className="lg:flex gap-2.5 block bg-red-400">
+      {/* Thumbnail images */}
       <div className="lg:flex flex-col items-center sm:max-w-[4.4375rem] gap-3.5 hidden lg:visible">
-        {images.map((img, index) => {
-          return (
-            <img
-              src={img}
-              key={index}
-              className="max-w-[100%] max-h-[100%]"
-              onClick={() => handleClick(index)}
-            />
-          );
-        })}
+        {Array.isArray(images) && images.map((item, index) => (
+          <img
+            key={item._id || index}
+            src={item.url}
+            className="max-w-[100%] max-h-[100%] cursor-pointer"
+            onClick={() => handleClick(index)}
+            alt={`Thumbnail ${index}`}
+          />
+        ))}
       </div>
+
+      {/* Main image */}
       <div className="lg:flex-1 w-auto h-auto sm:w-[50%] sm:h-[50%] flex-none image-detail-product">
-        <img
-          src={img}
-          alt="logo"
-          className="w-full h-auto bg-[#F6F6F6] cursor-crosshair "
-        />
+        {img && (
+          <img
+            src={img}
+            alt="Product"
+            onMouseMove={handleMouseMove}
+            style={{ backgroundPosition }}
+            className="w-full h-auto bg-[#F6F6F6] cursor-crosshair"
+          />
+        )}
       </div>
     </div>
   );

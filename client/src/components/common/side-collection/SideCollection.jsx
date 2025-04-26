@@ -1,52 +1,62 @@
+import { handleAPI } from "@/api/handleAPI";
 import { Checkbox } from "@/components/ui/checkbox";
-import { fakeProducts } from "@/data/WebData";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-const categories = [
-  "Blind Box",
-  "Figurine",
-  "POP BLOCKS",
-  "Plush Dolls",
-  "MEGA 100%",
-  "Others",
-];
-const SideCollection = () => {
-  const imageSrc = 'https://prod-eurasian-res.popmart.com/default/20241030_141739_676860____1_____1200x1200.jpg?x-oss-process=image/resize,p_40,format,webp,format,webp';
-  const name = 'Figure'
+const SideCollection = ({ selectedCategories, setSelectedCategories }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getAllCategories = async () => {
+      try {
+        const { data } = await handleAPI("/api/categories");
+        if (data) {
+          setCategories(data.slice(0, 5));
+        }
+      } catch (error) {
+        toast.error(error.message || "Failed to fetch categories");
+      }
+    };
+    getAllCategories();
+  }, []);
+
+  const handleCheckboxChange = (categoryName, checked) => {
+    if (checked) {
+      setSelectedCategories([categoryName]); // ⬅ chỉ giữ 1 cái
+    } else {
+      setSelectedCategories([]); // clear hết nếu bỏ chọn
+    }
+  };
+
   return (
-    <div className=" flex-[0.2] max-w-[12.4375rem] side-collection ">
+    <div className="flex-[0.2] max-w-[12.4375rem] side-collection">
       <div className="border-b-2 border-b-gray-300 pb-2">
         <h5 className="text-[.83333vw] text-[#000] font-bold mb-4">Category</h5>
-        {categories.map((item, index) => {
-          return (
-            <div className="flex items-center space-x-2 mb-4 text-xs" key={index}>
-              <Checkbox id="terms" className={'w-[1.4rem] h-[1.4rem] cursor-pointer'} />
+        {categories.length > 0 ? (
+          categories.map((item) => (
+            <div
+              className="flex items-center space-x-2 mb-4 text-xs"
+              key={item._id}
+            >
+              <Checkbox
+                id={`${item._id}`}
+                checked={selectedCategories.includes(item.name)}
+                onCheckedChange={(checked) =>
+                  handleCheckboxChange(item.name, checked)
+                }
+                className="w-[1.4rem] h-[1.4rem] cursor-pointer"
+              />
               <label
-                htmlFor="terms"
+                htmlFor={`category-${item._id}`}
                 className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                {item}
+                {item.name}
               </label>
             </div>
-          );
-        })}
-      </div>
-      <div>
-      <h5 className="text-[.83333vw] text-[#000] font-bold my-4">Characters</h5>
-      <div>
-    <div className="grid grid-cols-3 grid-rows-11 gap-4">
-        {fakeProducts.map((e, index) => (
-        <div key={index} className="col-span-1 flex flex-col items-center cursor-pointer">
-            <img
-              src={imageSrc}
-              alt={`Image ${index + 1}`}
-              className="max-w-15 max-h-13 object-cover border-1 border-[#000]"
-            />
-            <span className="text-xs py-1">{name} {index}</span>
-        </div>
-        ))}
-    </div>
-      </div>
+          ))
+        ) : (
+          <p>Loading categories...</p>
+        )}
       </div>
     </div>
   );

@@ -39,6 +39,9 @@ const userSlice = createSlice({
     registerFail: (state, actions) => {
       (state.register.loading = false), (state.error = actions.payload);
     },
+    logoutUser: (state) => {
+      state.login.user = null;
+    }
   },
 });
 
@@ -49,5 +52,6 @@ export const {
   registerStart,
   registerFail,
   registerSuccess,
+  logoutUser
 } = userSlice.actions;
 export const userReducer = userSlice.reducer;

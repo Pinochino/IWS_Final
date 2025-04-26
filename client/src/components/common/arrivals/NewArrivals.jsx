@@ -15,6 +15,10 @@ import { useDispatch } from "react-redux";
 import { setSkeleton } from "@/redux/reducers/LoadingReducer";
 import { Skeleton } from "@/components/ui/skeleton";
 import { fakeProducts } from "@/data/WebData";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { handleAPI } from "@/api/handleAPI";
+import { getAllProductsNewArrivalFail, getAllProductsNewArrivalStart, getAllProductsNewArrivalSuccess } from "@/redux/reducers/ProductReducer";
 
 export const arrivalImages = [
   {
@@ -49,16 +53,36 @@ export const arrivalImages = [
   },
 ];
 
-const NewArrivals = ({ title, layout = false, className='' }) => {
+const NewArrivals = ({ title, layout = false, className = "" }) => {
   const { isLoading } = useSelector((state) => state.loading);
   const dispatch = useDispatch();
+  const { loading, error } = useSelector((state) => state.product);
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(setSkeleton());
     }, 2000);
 
+    const getAllProducts = async () => {
+      dispatch(getAllProductsNewArrivalStart());
+      try {
+        const res = await handleAPI(`/api/products/new-arrivals`);
+        const result = await res.data;
+        console.log(result);
+        if (result) {
+          dispatch(getAllProductsNewArrivalSuccess())
+          setProducts(result);
+        } 
+      } catch (error) {
+        dispatch(getAllProductsNewArrivalFail(error?.message));
+        toast.error(error);
+      }
+    }
+
+    getAllProducts();
     return () => clearTimeout(timer);
+
   }, [dispatch]);
 
   return (
@@ -68,22 +92,26 @@ const NewArrivals = ({ title, layout = false, className='' }) => {
           {title}
         </h5>
         <button>
-          <Link className="flex items-center justify-center border-b-2 border-b-[#262626] h-4 cursor-pointer
+          <Link
+            className="flex items-center justify-center border-b-2 border-b-[#262626] h-4 cursor-pointer
           pb-2
           "
-          to={'/collection/New Arrival'}
+            to={"/collection/New Arrival"}
           >
             <span className="lg:text-xs text-xl">More</span>
             <ChevronRight className="lg:w-[12px] w-[1rem]" />
           </Link>
         </button>
       </div>
-      <Carousel className={'w-full Carousel1'}>
+      <Carousel className={"w-full Carousel1"}>
         <CarouselContent>
-          {(isLoading ? Array.from({ length: 4 }) : fakeProducts).map(
+          {products.map(
             (data, index) => {
               return (
-                <CarouselItem key={index} className="lg:basis-1/4 md:basis-1/3 basis-1/2">
+                <CarouselItem
+                  key={index}
+                  className="lg:basis-1/4 md:basis-1/3 basis-1/2"
+                >
                   {isLoading ? (
                     <Skeleton className="h-[20rem] w-full rounded-lg bg-[#E0E0E0]" />
                   ) : layout ? (
@@ -113,9 +141,9 @@ const NewArrivals = ({ title, layout = false, className='' }) => {
                       </div>
                     </div>
                   ) : (
-                    <Link to={`/product/${data.id}`}>
+                    <Link to={`/product/${data._id}`}>
                       <CartItem
-                        img={data.thumbnail}
+                        img={data.images?.[0]?.url}
                         name={data.name}
                         price={data.price}
                       />
@@ -127,8 +155,8 @@ const NewArrivals = ({ title, layout = false, className='' }) => {
           )}
         </CarouselContent>
 
-        <CarouselPrevious className={'-left-4 -translate-y-14' }/>
-        <CarouselNext  className={'-right-4 -translate-y-14'}/>
+        <CarouselPrevious className={"-left-4 -translate-y-14"} />
+        <CarouselNext className={"-right-4 -translate-y-14"} />
       </Carousel>
     </div>
   );

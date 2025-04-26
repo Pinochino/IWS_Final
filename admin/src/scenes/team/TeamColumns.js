@@ -1,6 +1,6 @@
 
 const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "_id", headerName: "ID" },
   {
     field: "name",
     headerName: "Name",
@@ -9,28 +9,28 @@ const columns = [
     // editable: true,
   },
   {
-    field: "email",
-    headerName: "Email",
+    field: "description",
+    headerName: "Description",
     flex: 1,
     editable: true,
   },
   {
-    field: "age",
-    headerName: "Age",
+    field: "price",
+    headerName: "Price",
     type: "number",
     headerAlign: "left",
     align: "left",
     editable: true,
   },
   {
-    field: "phone",
-    headerName: "Phone",
+    field: "character",
+    headerName: "Character",
     flex: 1,
     editable: true,
   },
   {
-    field: "access",
-    headerName: "Address",
+    field: "countInStock",
+    headerName: "Quantity",
     flex: 0.5,
     editable: true,
   },
