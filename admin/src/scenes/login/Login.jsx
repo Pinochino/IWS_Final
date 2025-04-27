@@ -39,6 +39,7 @@ const LoginPage = () => {
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+      console.log(data);
       dispatch(loginStart());
       try {
         const res = await handleAPI(`/api/users/login`, "post", data);

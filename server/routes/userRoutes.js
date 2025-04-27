@@ -3,6 +3,7 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { protect } = require("../middleware/authMiddleware");
+const Cart = require("../models/Cart");
 
 const router = express.Router();
 
@@ -61,8 +62,15 @@ router.post("/register", async (req, res) => {
       address: [addressObj],
       role,
     });
+    
+    // Tạo giỏ hàng trống cho người dùng mới
+    const newCart = new Cart({
+      userId: user._id,
+      items: [], // Giỏ hàng trống
+      totalPrice: 0, // Giá trị giỏ hàng ban đầu là 0
+    });
+    await newCart.save();
     await user.save();
-
     sendToken(user, res);
   } catch (error) {
     console.error(error);

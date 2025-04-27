@@ -24,7 +24,7 @@ const SlideDetail = ({ images }) => {
   };
 
   return (
-    <div className="lg:flex gap-2.5 block bg-red-400">
+    <div className="lg:flex gap-2.5 block">
       {/* Thumbnail images */}
       <div className="lg:flex flex-col items-center sm:max-w-[4.4375rem] gap-3.5 hidden lg:visible">
         {Array.isArray(images) && images.map((item, index) => (

@@ -41,7 +41,7 @@ const productSlice = createSlice({
       state.getProductById.product = actions.payload;
     },
     getProductByIdFail: (state, actions) => {
-      state.getAllProducts.loading = false;
+      state.getProductById.loading = false;
       state.getProductById.error = actions.payload;
     },
     getAllProductsTopSellerStart: (state) => {

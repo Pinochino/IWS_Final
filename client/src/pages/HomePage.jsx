@@ -3,7 +3,6 @@ import Banner from "@/components/common/banner/Banner";
 import CustomCarousel from "@/components/common/carousel/CustomCarousel";
 import Featured from "@/components/common/featured/Featured";
 import SeriesFigures from "@/components/common/figures/SeriesFigures";
-import PopFriend from "@/components/common/pop-friends/PopFriend";
 import PopularSearches from "@/components/common/popular-searches/PopularSearches";
 import Recommendation from "@/components/common/recommendation/Recommendation";
 import TopSelling from "@/components/common/top-sellings/TopSelling";
@@ -24,7 +23,6 @@ const HomePage = () => {
         })}
         <PopularSearches />
         <TopSelling />
-        <PopFriend />
         <Banner />
       </div>
     </div>

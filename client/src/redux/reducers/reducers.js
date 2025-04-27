@@ -5,6 +5,7 @@ import { loadingReducer } from "./LoadingReducer";
 import { wishlistReducer } from "./WishlistReducer";
 import { userReducer } from "./UserReducer";
 import { productReducer } from "./ProductReducer";
+import { quantityReducer } from "./QuantityReducer";
 
 const reducers = combineReducers({
     dropdown: dropdownReducer,
@@ -13,5 +14,6 @@ const reducers = combineReducers({
     wishlist: wishlistReducer,
     product: productReducer,
     user: userReducer,
+    quantity: quantityReducer,
 });
 export default reducers;

@@ -45,7 +45,7 @@ const HeaderLoading = () => {
 };
 
 const HeaderMobile = () => {
-  const { items } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart.addItem);
   return (
     <div className="flex justify-between items-center gap-2">
       <div className="flex items-center">
@@ -81,7 +81,7 @@ const HeaderMobile = () => {
             }
           >
             <i className="bx bx-cart text-5xl"></i>
-            <span className="text-5xl">{items.length}</span>
+            <span className="text-5xl">{cart.length}</span>
           </Button>
         </Link>
         <img

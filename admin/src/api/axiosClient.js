@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosClient = axios.create({
     baseURL: 'http://localhost:2025',
-    timeout: 1000,
+    timeout: 5000,
     headers: { 'X-Custom-Header': 'foobar' },
     withCredentials: true,
 });

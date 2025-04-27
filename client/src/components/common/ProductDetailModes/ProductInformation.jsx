@@ -8,11 +8,13 @@ import {
 } from "@/components/ui/accordion";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "@/redux/reducers/CartReducer";
 import AddQuantityBtn from "../AddQuantityBtn/AddQuantityBtn";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { addItemToCartSuccess } from "@/redux/reducers/CartReducer";
+import { handleAPI } from "@/api/handleAPI";
+import { toast } from "react-toastify";
 
 const dataAccordion = [
   {
@@ -32,16 +34,47 @@ Expedited Shipping (3-7 working days)
   },
 ];
 
-const ProductInformation = ({product}) => {
+const ProductInformation = ({ product }) => {
   const [msg, setMsg] = useState(false);
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.login.user);
+  const user1 = useSelector((state) => state.user.register.user);
+  console.log('user: ', user);
+  console.log('user1: ',user1);
+  const {quantity} = useSelector((state) => state.quantity);
 
-  const handleAddItemToCart = useCallback(() => {
-    dispatch(addItemToCart());
-    setMsg(true);
-  }, [dispatch]);
-
+  const handleAddItemToCart = async (productId) => {
+    try {
+      // Ensure that user and user._id are valid
+      const currentUser = user || user1;
+      if (!currentUser || !currentUser.user || !currentUser.user._id) {
+        toast.error("User is not logged in");
+        return;
+      }
+  
+      const newData = {
+        productId,
+        quantity,
+        userId: currentUser.user._id, // Ensure this value is valid
+      };
+  
+      const res = await handleAPI(`/api/cart`, 'post', newData);
+      const result = await res.data;
+  
+      if (result) {
+        console.log(result);
+        dispatch(addItemToCartSuccess(result));
+        setMsg(true);  // Show notification
+      }
+    } catch (error) {
+      console.error("Error adding item to cart", error);
+      toast.error("Error adding item to cart");
+    }
+  };
+  
+  
   useEffect(() => {
+    
     if (msg) {
       const timeout = setTimeout(() => {
         setMsg(false);
@@ -51,7 +84,7 @@ const ProductInformation = ({product}) => {
   }, [msg]);
 
   return (
-    <div className="bg-purple-400 lg:w-auto w-[94%]">
+    <div className="lg:w-auto w-[94%]">
       {msg && (
         <Alert className="mb-4 absolute right-6 max-w-[12%]  bg-[#333333] max-h-[5%] flex items-center -translate-y-10 transition-all duration-500 ease-in-out">
           <AlertDescription className={"flex items-center justify-between"}>
@@ -67,7 +100,7 @@ const ProductInformation = ({product}) => {
       )}
       <div className="flex items-center justify-between mb-10 lg:mb-0">
         <h3 className="lg:text-[1.45833vw] text-[#000] font-bold text-7xl md:text-3xl ">
-         {product.name}
+          {product.name}
         </h3>
         <i className="bx bx-heart lg:text-xl text-7xl hidden lg:visible "></i>
       </div>
@@ -91,7 +124,7 @@ const ProductInformation = ({product}) => {
           className={
             "uppercase lg:w-[11.5625vw] lg:h-[3.125vw] text-white cursor-pointer font-bold lg:text-[.83333vw] text-5xl w-[100%] h-auto md:text-3xl"
           }
-          onClick={handleAddItemToCart}
+          onClick={() => handleAddItemToCart(product._id)} 
         >
           add to cart
         </Button>

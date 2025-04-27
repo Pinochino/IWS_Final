@@ -8,33 +8,69 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "@/redux/reducers/UserReducer";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { handleAPI } from "@/api/handleAPI"; // Giả sử bạn có một API handler
+import { handleAPI } from "@/api/handleAPI"; 
+import { fetchCartFail, fetchCartStart, fetchCartSuccess } from "@/redux/reducers/CartReducer";
+import { toast } from "react-toastify";
 
 const HeaderModes = () => {
-  const { items } = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user.login.user);
+  const user1 = useSelector((state) => state.user.register.user);
+  const [items, setItems] = useState([])
+ 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [searchQuery, setSearchQuery] = useState(""); // Query tìm kiếm
-  const [searchResults, setSearchResults] = useState([]); // Kết quả tìm kiếm
+  const [searchQuery, setSearchQuery] = useState(""); 
+  const [searchResults, setSearchResults] = useState([]); 
 
-  // Xử lý tìm kiếm mỗi khi người dùng thay đổi input
   useEffect(() => {
     if (searchQuery) {
       const fetchSearchResults = async () => {
         try {
           const { data } = await handleAPI(`/api/products?search=${searchQuery}`);
-          setSearchResults(data.products); // Giả sử API trả về danh sách sản phẩm
+          setSearchResults(data.products);
         } catch (error) {
           console.log("Search error:", error);
         }
       };
       fetchSearchResults();
     } else {
-      setSearchResults([]); // Clear kết quả tìm kiếm nếu không có query
+      setSearchResults([]); 
     }
   }, [searchQuery]);
+
+
+  // Determine which user to use (login user or register user)
+  const userId = user ? user : user1 ? user1 : null;
+  const a = userId.user._id
+  console.log(a);
+  useEffect(() => {
+   
+  
+    if (!userId) {
+      toast.error("Please log in to view your cart.");
+      return;
+    }
+  
+    const handleGetAllItems = async () => {
+      dispatch(fetchCartStart());
+      const b= a.toString();
+      try {
+        const res = await handleAPI(`/api/cart/${b}`);
+        const result = await res.data;
+        if (result) {
+          setItems(result.items);
+          dispatch(fetchCartSuccess(result));
+        }
+      } catch (error) {
+        dispatch(fetchCartFail(error?.message));
+        toast.error(error?.message || "An error occurred");
+      }
+    };
+  
+    handleGetAllItems();
+  }, [a, dispatch, user, user1, userId]);
+  
 
   const handleLogout = async () => {
     try {
@@ -51,9 +87,9 @@ const HeaderModes = () => {
   };
 
   const handleSearchResultClick = (productId) => {
-    navigate(`/product/${productId}`); // Chuyển hướng đến trang chi tiết sản phẩm
-    setSearchQuery(""); // Clear input khi chọn gợi ý
-    setSearchResults([]); // Clear gợi ý tìm kiếm
+    navigate(`/product/${productId}`); 
+    setSearchQuery(""); 
+    setSearchResults([]); 
   };
   
 
@@ -102,7 +138,7 @@ const HeaderModes = () => {
       </div>
 
       <div className="flex items-center">
-        {user && user.login.user ? (
+        {user || user1 ? (
           <>
             <Avatar className={'mr-2'}>
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

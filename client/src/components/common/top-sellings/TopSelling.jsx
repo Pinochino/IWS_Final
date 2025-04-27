@@ -106,7 +106,7 @@ const TopSelling = () => {
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 row-span-3 gap-7">
             {products.map((e, index) => {
                 return (
-                  <CartItem key={index} img={e.images?.[0].url} name={e.name} price={e.price}/>
+                  <CartItem key={index} img={e.images?.[0].url} name={e.name} price={e.price} id={e._id}/>
                 )
             })}
       </div>

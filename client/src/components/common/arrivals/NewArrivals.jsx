@@ -146,6 +146,7 @@ const NewArrivals = ({ title, layout = false, className = "" }) => {
                         img={data.images?.[0]?.url}
                         name={data.name}
                         price={data.price}
+                        id={data._id}
                       />
                     </Link>
                   )}
