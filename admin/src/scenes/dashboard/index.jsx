@@ -21,7 +21,6 @@ function Dashboard() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const {user} = useSelector((state) => state.user);
-  console.log(user);
 
   return (
     <Box m="20px">

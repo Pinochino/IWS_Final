@@ -85,10 +85,8 @@ const CartLeft = () => {
     const handleGetAllItems = async () => {
       dispatch(fetchCartStart());
       try {
-        console.log(userId);
         const res = await handleAPI(`/api/cart/${a}`);
         const result = await res.data;
-        console.log("Cart: ", result);
         if (result) {
           setItems(result.items);
           dispatch(fetchCartSuccess(result));
@@ -129,7 +127,6 @@ const CartLeft = () => {
         </label>
       </div>
       {Array.from(items).map((e, index) => {
-        console.log('product id: ', e.productId);
         return (
           <div className="flex" key={index}>
             <Checkbox

@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     loading: false,
+    payment: null,
+    error: null
 }
 
 const paymentSlicer = createSlice({
@@ -12,10 +14,12 @@ const paymentSlicer = createSlice({
             state.loading = true;
         },
         paymentSuccess: (state, action) => {
-
+            state.loading = false,
+            state.payment = action.payload;
         },
         paymentFail: (state, action) => {
-
+            state.loading = false,
+            state.error = action.payload;
         }
     }
 });

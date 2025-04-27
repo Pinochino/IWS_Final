@@ -11,7 +11,6 @@ const router = express.Router();
 //@desc    Create one or multiple new products (admin only)
 //@access  Private/Admin
 router.post("/create", protect, isAdmin, async (req, res) => {
-    console.log("POST /api/products with body:", req.body);
     try {
         const { products } = req.body;
 
@@ -54,7 +53,6 @@ router.post("/create", protect, isAdmin, async (req, res) => {
 
                         // Check if category exists
                         const categoryExists = await Category.findById(category);
-                        console.log(categoryExists);
                         if (!categoryExists) {
                             errors.push({
                                 product: productData,

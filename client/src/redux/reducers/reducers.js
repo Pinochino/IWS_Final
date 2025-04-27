@@ -6,6 +6,7 @@ import { wishlistReducer } from "./WishlistReducer";
 import { userReducer } from "./UserReducer";
 import { productReducer } from "./ProductReducer";
 import { quantityReducer } from "./QuantityReducer";
+import { paymentReducer } from "./PaymentReducer";
 
 const reducers = combineReducers({
     dropdown: dropdownReducer,
@@ -15,5 +16,6 @@ const reducers = combineReducers({
     product: productReducer,
     user: userReducer,
     quantity: quantityReducer,
+    payment: paymentReducer,
 });
 export default reducers;

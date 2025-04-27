@@ -22,7 +22,6 @@ function ContactTable() {
         dispatch(getAllUsersStart());
         try {
           const res = await handleAPI('/api/admin/users');
-          console.log(res.data);
           if (res.data && Array.isArray(res.data)) {
             setUsers(res.data);
             dispatch(getAllUsersSuccess(res.data));

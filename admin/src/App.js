@@ -14,7 +14,6 @@ const cx = classNames.bind(styles);
 function App() {
   const [theme, colorMode] = useMode();
   const {user} = useSelector((state) => state.user);
-  console.log(user);
 
   return (
     <ColorModeContext.Provider value={colorMode}>

@@ -120,7 +120,6 @@ router.put("/", protect, async (req, res) => {
 //@access public
 router.delete("/:productId/:userId", async (req, res) => {
   const { productId, userId } = req.params;
-  console.log(productId, userId);
   try {
     let cart = await getCart(userId);
 

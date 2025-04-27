@@ -87,7 +87,6 @@ const TopSelling = () => {
         if (result) {
           setProducts(result.slice(0, 12)); 
           dispatch(getAllProductsTopSellerSuccess(result))
-          console.log(result.slice(0, 12));
         }
       } catch (error) {
         dispatch(getAllProductsTopSellerFail(error?.message))

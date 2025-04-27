@@ -21,7 +21,6 @@ function TeamTable() {
       dispatch(getAllProductStart());
       try {
         const res = await handleAPI('/api/products');
-        console.log(res.data);
         if (res.data && Array.isArray(res.data.products)) {
           setProducts(res.data.products);
           dispatch(getAllProductSuccess(res.data.products));

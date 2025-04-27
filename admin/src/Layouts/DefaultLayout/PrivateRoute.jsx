@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ children }) => {
     const user = useSelector((state) => state.user.login.user);
-    console.log(user);
 
   
     

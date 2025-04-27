@@ -1,15 +1,64 @@
+import { handleAPI } from "@/api/handleAPI";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import React from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
-const AddAddressDialog = () => {
+const AddAddressDialog = ({ setShippingAddress }) => {
+  const [formData, setFormData] = useState({
+    street: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    country: "Vietnam",
+  });
+
+  const user = useSelector((state) => state.user.login.user) || useSelector((state) => state.user.register.user);
+  const userId = user?.user?._id;
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const addressString = `${formData.street}, ${formData.city}, ${formData.state}, ${formData.country}`;
+      
+      const res = await handleAPI(`/api/users/update`, "put", {
+        userId: userId,
+        addressString: addressString,
+      });
+      
+      if (res.status === 200) {
+        toast.success("Address updated successfully!");
+        setShippingAddress({
+          address: formData.street,
+          city: formData.city,
+          postalCode: formData.postalCode,
+          country: formData.country,
+        }); 
+        // <-- Gửi object cho PaymentLeft, không gửi string nữa!
+      } else {
+        toast.error(res.statusText || "Failed to update address.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("An error occurred.");
+    }
+  };
+  
+
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="uppercase bg-black text-white rounded-none text-[.9375vw] py-[.625vw] hover:bg-[#333]">
+        <Button className="uppercase bg-black text-white rounded-none text-[15px] py-2 hover:bg-[#333]">
           Add a new address
         </Button>
       </DialogTrigger>
@@ -17,60 +66,15 @@ const AddAddressDialog = () => {
         <DialogHeader className="mb-4">
           <DialogTitle className="text-center text-xl font-bold">ADD A NEW ADDRESS</DialogTitle>
         </DialogHeader>
-        <form className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="firstName">First Name</label>
-              <Input id="firstName" placeholder="* First Name" />
-            </div>
-            <div>
-              <label htmlFor="lastName">Last Name</label>
-              <Input id="lastName" placeholder="* Last Name" />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="phone">Phone</label>
-            <div className="flex">
-              <span className="flex items-center justify-center px-3 bg-gray-100 border border-r-0 border-gray-300 text-gray-600 text-sm">+84</span>
-              <Input id="phone" placeholder="Phone (In case we need to contact you about your order)" className="rounded-l-none" />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <Input id="address" placeholder="* Address" />
-          </div>
-          <div>
-            <label htmlFor="apartment">Apartment, Suite, etc. (Optional)</label>
-            <Input id="apartment" placeholder="Apartment, Suite, etc. (Optional)" />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="city">City/Ward/Town/Village</label>
-              <Input id="city" placeholder="* City/ward/town/village" />
-            </div>
-            <div>
-              <label htmlFor="zip">Zip Code</label>
-              <Input id="zip" placeholder="* Zip Code" />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="province">Province/State</label>
-            <Select>
-              <SelectTrigger id="province">
-                <SelectValue placeholder="* Province/State" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="hanoi">Hà Nội</SelectItem>
-                <SelectItem value="hcm">Hồ Chí Minh</SelectItem>
-                <SelectItem value="danang">Đà Nẵng</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Checkbox id="defaultAddress" />
-            <label htmlFor="defaultAddress">Set as default address</label>
-          </div>
-          <Button type="submit" className="w-full bg-black text-white rounded-none text-[.9375vw] py-[.625vw] hover:bg-[#333]">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <Input id="street" placeholder="* Street" value={formData.street} onChange={handleChange} />
+          <Input id="city" placeholder="* City" value={formData.city} onChange={handleChange} />
+          <Input id="state" placeholder="* State/Province" value={formData.state} onChange={handleChange} />
+          <Input id="postalCode" placeholder="* Postal Code" value={formData.postalCode} onChange={handleChange} />
+          <Button
+            type="submit"
+            className="w-full bg-black text-white rounded-none text-[15px] py-2 hover:bg-[#333]"
+          >
             Save
           </Button>
         </form>

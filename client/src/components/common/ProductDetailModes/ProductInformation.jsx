@@ -39,8 +39,7 @@ const ProductInformation = ({ product }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.login.user);
   const user1 = useSelector((state) => state.user.register.user);
-  console.log('user: ', user);
-  console.log('user1: ',user1);
+
   const {quantity} = useSelector((state) => state.quantity);
 
   const handleAddItemToCart = async (productId) => {
@@ -62,7 +61,6 @@ const ProductInformation = ({ product }) => {
       const result = await res.data;
   
       if (result) {
-        console.log(result);
         dispatch(addItemToCartSuccess(result));
         setMsg(true);  // Show notification
       }

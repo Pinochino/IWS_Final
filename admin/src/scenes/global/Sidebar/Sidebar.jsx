@@ -20,6 +20,7 @@ import images from "~/assets/images";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import { logout } from "~/redux/reducer/UserReducer";
+import { toast } from "react-toastify";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -46,7 +47,6 @@ const SideBar = () => {
   const [selected, setSelected] = useState("Dashboard");
 // Get the user from the Redux state
 const {user} = useSelector((state) => state.user);
-console.log(user);
 const dispatch = useDispatch();
 const navigate = useNavigate();
 
@@ -56,7 +56,7 @@ const handleLogout =  async() => {
   dispatch(logout()); // set user về null
   navigate("/login");
   } catch (error) {
-    console.log(error);
+    toast.error(error);
   }
 }
 

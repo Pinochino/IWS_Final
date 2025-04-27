@@ -9,7 +9,6 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = Cookies.get("token");
-    console.log(token);
     if (token) {
       try {
         const decoded = jwtDecode(token);

@@ -31,7 +31,6 @@ function FormPage() {
   const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user.login.user);
-  console.log("User:" ,user);
 
 
  const handleCreateProduct = async (values, { resetForm }) => {
@@ -60,14 +59,13 @@ function FormPage() {
 
     if (product) {
       toast.success("✅ Product created successfully!");
-      resetForm(); // 🧼 clear form fields
+      resetForm(); // 
     } else {
       dispatch(createProductFail());
       toast.error("❌ Failed to create product.");
     }
 
   } catch (error) {
-    console.log(error);
     dispatch(createProductFail());
     toast.error(`❌ Error: ${error.response?.data?.message || error.message}`);
   }
@@ -77,16 +75,14 @@ function FormPage() {
     const getAllCategories = async () => {
       try {
         const res = await handleAPI(`/api/categories`);
-        console.log(res.data);
         if (res && res.data) {
           setCategories(res.data);
         }
-        // Nếu API trả ra array trực tiếp
         else if (Array.isArray(res)) {
           setCategories(res);
         }
       } catch (error) {
-        console.log(error);
+       toast.error(error);
       }
     };
     getAllCategories();

@@ -4,23 +4,18 @@ const checkoutItemSchema = new mongoose.Schema({
     productId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
-        required: true,
     },
     name:{
         type: String,
-        required: true,
     },
     image:{
         type:String,
-        required:true,
     },
     price:{
         type: Number,
-        required:true,
     },
     quantity:{
         type:Number,
-        required:true,
         min:1,
     },
     
@@ -36,18 +31,16 @@ const checkoutSchema=new mongoose.Schema({
     },
     checkoutItems:[checkoutItemSchema],
     shippingAddress:{
-        address:{ type:String, required: true},
-        city:{type:String, required:true},
-        country:{type:String, required:true},
-        postalCode:{type:String, required:true},
+        address:{ type:String},
+        city:{type:String},
+        country:{type:String},
+        postalCode:{type:String},
     },
     paymentMethod:{
         type:String,
-        required:true,
     },
     totalPrice:{
         type:Number,
-        required:true,
     },
     isPaid:{
         type:Boolean,

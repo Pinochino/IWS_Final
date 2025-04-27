@@ -69,7 +69,6 @@ const NewArrivals = ({ title, layout = false, className = "" }) => {
       try {
         const res = await handleAPI(`/api/products/new-arrivals`);
         const result = await res.data;
-        console.log(result);
         if (result) {
           dispatch(getAllProductsNewArrivalSuccess())
           setProducts(result);
