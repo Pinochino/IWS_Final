@@ -82,7 +82,8 @@ const cartSlice = createSlice({
     },
     removeAllCartItem: (state, actions) => {
       state.cart.items = null;
-    }
+    },
+    
   },
 });
 

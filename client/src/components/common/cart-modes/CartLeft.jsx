@@ -40,40 +40,47 @@ const CartLeft = () => {
     }
   };
 const {hidden} = useSelector((state) => state.hidden);
-  const handleRemoveItem = useCallback(
-    async (productId) => {
-      dispatch(makeHidden());
-      if (!productId) {
-        console.error("Product ID is missing");
-        toast.error("Product ID is missing");
-        return;
+const handleRemoveItem = useCallback(
+  async (productId) => {
+    if (!productId) {
+      console.error("Product ID is missing");
+      toast.error("Product ID is missing");
+      return;
+    }
+
+    const b = a.toString();
+    if (!user || !a) {
+      console.error("User or User ID is missing");
+      toast.error("User ID is missing. Please log in.");
+      return;
+    }
+
+    dispatch(removeItemFromCartStart());
+
+    try {
+      const productIdString = productId.toString();
+      const res = await handleAPI(`/api/cart/${productIdString}/${b}`, "delete");
+      const result = await res.data;
+
+      if (result) {
+        // Cập nhật lại danh sách sản phẩm sau khi xóa
+        setItems((prevItems) => prevItems.filter(item => item.productId !== productId));  // Cập nhật state với sản phẩm đã xóa
+
+        dispatch(removeItemFromCartSuccess(result));
+
+        // Cập nhật lại `selectedItems` sau khi xóa sản phẩm
+        setSelectedItems((prevSelectedItems) => prevSelectedItems.filter((id) => id !== productId));
+        window.location.reload(); 
       }
-      const b = a.toString()
-      if (!user || !a) {
-        console.error("User or User ID is missing");
-        toast.error("User ID is missing. Please log in.");
-        return;
-      }
-  
-      dispatch(removeItemFromCartStart());
-  
-      try {
-        // Ensure that both productId and userId are valid
-        const productIdString = productId.toString();
-  
-        const res = await handleAPI(`/api/cart/${productIdString}/${b}`, "delete");
-        const result = await res.data;
-  
-        if (result) {
-          dispatch(removeItemFromCartSuccess(result));
-        }
-      } catch (error) {
-        dispatch(removeItemFromCartFail(error?.message));
-        toast.error(error?.message || "An error occurred");
-      }
-    },
-    [a, dispatch, user]
-  );
+    } catch (error) {
+      dispatch(removeItemFromCartFail(error?.message));
+      toast.error(error?.message || "An error occurred");
+    }
+  },
+  [a, dispatch, user]
+);
+
+
   
   
 
@@ -130,7 +137,7 @@ const {hidden} = useSelector((state) => state.hidden);
       </div>
       {Array.from(items).map((e, index) => {
         return (
-          <div className={`flex ${hidden ? 'hidden' : ''}`} key={index}>
+          <div className={`flex`} key={index}>
             <Checkbox
               className="mr-4"
               checked={selectedItems.includes(e.productId)}

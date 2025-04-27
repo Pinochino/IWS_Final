@@ -5,10 +5,7 @@ import DefaultLayout from './layouts/DefaultLayout';
 import "./App.css"
 import 'boxicons';
 import { useEffect } from 'react';
-
-
 function App() {
-
   return (
     <Router>
       <div className="App">
