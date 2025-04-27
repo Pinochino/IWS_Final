@@ -7,6 +7,7 @@ import { userReducer } from "./UserReducer";
 import { productReducer } from "./ProductReducer";
 import { quantityReducer } from "./QuantityReducer";
 import { paymentReducer } from "./PaymentReducer";
+import { hiddenReducer } from "./HiddenReducer";
 
 const reducers = combineReducers({
     dropdown: dropdownReducer,
@@ -17,5 +18,6 @@ const reducers = combineReducers({
     user: userReducer,
     quantity: quantityReducer,
     payment: paymentReducer,
+    hidden: hiddenReducer,
 });
 export default reducers;

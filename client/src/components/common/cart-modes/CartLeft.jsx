@@ -14,6 +14,7 @@ import {
 } from "@/redux/reducers/CartReducer";
 import { useSelector } from "react-redux";
 import { useCallback } from "react";
+import { makeHidden } from "@/redux/reducers/HiddenReducer";
 
 const CartLeft = () => {
   const [msg, setMsg] = useState(false);
@@ -38,9 +39,10 @@ const CartLeft = () => {
       setSelectedItems([]);
     }
   };
-
+const {hidden} = useSelector((state) => state.hidden);
   const handleRemoveItem = useCallback(
     async (productId) => {
+      dispatch(makeHidden());
       if (!productId) {
         console.error("Product ID is missing");
         toast.error("Product ID is missing");
@@ -128,7 +130,7 @@ const CartLeft = () => {
       </div>
       {Array.from(items).map((e, index) => {
         return (
-          <div className="flex" key={index}>
+          <div className={`flex ${hidden ? 'hidden' : ''}`} key={index}>
             <Checkbox
               className="mr-4"
               checked={selectedItems.includes(e.productId)}

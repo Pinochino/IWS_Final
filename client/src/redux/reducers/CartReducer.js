@@ -80,6 +80,9 @@ const cartSlice = createSlice({
       state.cart.loading = false;
       state.cart.error = action.payload;
     },
+    removeAllCartItem: (state, actions) => {
+      state.cart.items = null;
+    }
   },
 });
 
@@ -95,7 +98,8 @@ export const {
   updateItemFromCartSuccess,
   fetchCartFail,
   fetchCartSuccess,
-  fetchCartStart
+  fetchCartStart,
+  removeAllCartItem,
 } = cartSlice.actions;
 export const cartReducer = cartSlice.reducer;
 

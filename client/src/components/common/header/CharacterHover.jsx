@@ -4,13 +4,13 @@ const CharacterHover = ({ name, imgs = [], layoutType = "one", slice }) => {
   if (!imgs || imgs.length === 0) return null;
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 transition-opacity duration-1000 ease-in-out delay-700">
       {layoutType === "one" && (
        <div className="flex justify-center">
           <div className="grid grid-cols-3 gap-5">
             {imgs.slice(0, slice).map((img, index) => (
               <div key={index} className="col-span-1 flex flex-col items-center justify-center">
-                <img src={img.img} alt="logo" className=" object-cover max-w-[15rem] h-auto" />
+                <img src={img.img} alt="logo" className=" object-cover max-w-[10rem] max-h-[5rem] h-auto" />
                 <span className="mt-2 text-center text-sm">{img.name}</span>
               </div>
             ))}

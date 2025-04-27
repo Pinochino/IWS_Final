@@ -1,18 +1,16 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { useRef } from "react";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SeriesFigures = () => {
-
   const videoRef = useRef();
   const btnVideoRef = useRef();
 
   const playVideo = () => {
     videoRef.current.play();
     btnVideoRef.current.classList.add("hidden");
-  }
-
+  };
 
   return (
     <div className="lg:mb-20 relative mb-15">
@@ -20,7 +18,7 @@ const SeriesFigures = () => {
         Hirono Echo Series Figures
       </h2>
       <video
-      ref={videoRef}
+        ref={videoRef}
         controls
         poster="https://global-static.popmart.com/globalAdmin/1744278382440____pc____.jpg"
         className="lg:max-h-[40.5rem] relative h-[100%] w-[100%]"
@@ -32,15 +30,26 @@ const SeriesFigures = () => {
         />
         Your browser does not support the video tag.
       </video>
-      <div className="lg:right-[42%] lg:top-[45%] right-[25%] top-[42%] absolute rounded-[50%] flex justify-center items-center cursor-pointer
-      ">
-       <img
-       ref={btnVideoRef}
-       src="https://cdn-global.popmart.com/global-mobile/images/icons/video-play-icon.png" alt="" className="lg:max-w-[50%] lg:max-h-[50%] max-w-[25%] max-h-[25%]" onClick={playVideo}/>
+      <div
+        className="lg:right-[42%] lg:top-[45%] right-[25%] top-[42%] absolute rounded-[50%] flex justify-center items-center cursor-pointer
+      "
+      >
+        <img
+          ref={btnVideoRef}
+          src="https://cdn-global.popmart.com/global-mobile/images/icons/video-play-icon.png"
+          alt=""
+          className="lg:max-w-[50%] lg:max-h-[50%] max-w-[25%] max-h-[25%]"
+          onClick={playVideo}
+        />
       </div>
       <div className="flex justify-center items-center mt-[1.25vh]">
-        <Button variant="destructive" className={"uppercase lg:w-auto lg:h-auto w-[24%] lg:text-base text-sm"}>
-          Shop now
+        <Button
+          variant="destructive"
+          className={
+            "uppercase lg:w-auto lg:h-auto w-[24%] lg:text-base text-sm"
+          }
+        >
+          <Link to={"/collection/New Arrival"}> Shop now</Link>
         </Button>
       </div>
     </div>

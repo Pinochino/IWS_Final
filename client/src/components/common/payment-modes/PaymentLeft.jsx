@@ -73,37 +73,47 @@ const PaymentLeft = () => {
           <p className="text-[.625vw] text-[#010101] font-normal mb-1.5">
             You don‘t have a saved address. To save time, please add your shipping address.
           </p>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                className="w-full border border-black text-black font-bold rounded-none text-[.9375vw] py-[.625vw] hover:bg-[#f5f5f5]"
-              >
-                Add a new address
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle className={"text-2xl mb-5"}>My Address</SheetTitle>
-                <SheetDescription>
-                  <div className="flex justify-center items-center flex-col">
-                    <Button
-                      size="icon"
-                      variant="default"
-                      className="bg-[#F7F7F7] hover:bg-[#F7F7F7] rounded-2xl mb-10"
-                    >
-                      <i className="bx bx-map text-2xl text-[#010101]"></i>
-                    </Button>
-                    <p className="mb-20">
-                      You currently don't have any saved delivery addresses.
-                      Add an address here to be pre-filled for quicker checkout.
-                    </p>
-                  </div>
-                  <AddAddressDialog setShippingAddress={setShippingAddress} />
-                </SheetDescription>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+          {shippingAddress && shippingAddress.address ? (
+  <div className="p-4 border border-black rounded-none">
+    <p className="font-bold mb-2">Shipping Address:</p>
+    <p>Address: {shippingAddress.address}</p>
+    <p>City: {shippingAddress.city}, {shippingAddress.country}</p>
+    <p>Postal Code: {shippingAddress.postalCode}</p>
+  </div>
+) : (
+  <Sheet>
+    <SheetTrigger asChild>
+      <Button
+        variant="outline"
+        className="w-full border border-black text-black font-bold rounded-none text-[.9375vw] py-[.625vw] hover:bg-[#f5f5f5]"
+      >
+        Add a new address
+      </Button>
+    </SheetTrigger>
+    <SheetContent>
+      <SheetHeader>
+        <SheetTitle className="text-2xl mb-5">My Address</SheetTitle>
+        <SheetDescription>
+          <div className="flex justify-center items-center flex-col">
+            <Button
+              size="icon"
+              variant="default"
+              className="bg-[#F7F7F7] hover:bg-[#F7F7F7] rounded-2xl mb-10"
+            >
+              <i className="bx bx-map text-2xl text-[#010101]"></i>
+            </Button>
+            <p className="mb-20">
+              You currently don't have any saved delivery addresses.
+              Add an address here to be pre-filled for quicker checkout.
+            </p>
+          </div>
+          <AddAddressDialog setShippingAddress={setShippingAddress} />
+        </SheetDescription>
+      </SheetHeader>
+    </SheetContent>
+  </Sheet>
+)}
+
         </div>
       </div>
 

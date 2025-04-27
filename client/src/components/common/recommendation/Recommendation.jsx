@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {Link} from 'react-router-dom';
 
 const images = [
   {
@@ -37,8 +38,10 @@ const Recommendation = () => {
           {images.map((data, index) => {
             return (
               <CarouselItem key={index} className={"lg:basis-1/3 md:basis-1/3 basis-1/2"}>
-                <img src={data.img} alt="logo" className="w-[100%]" />
-                <span className="lg:text-sm mt-3 text-4xl line-clamp-1 md:text-xl">{data.name}</span>
+          <Link to={'/collection/New Arrival'}>
+                  <img src={data.img} alt="logo" className="w-[100%]" />
+                  <span className="lg:text-sm mt-3 text-4xl line-clamp-1 md:text-xl">{data.name}</span>
+          </Link>
               </CarouselItem>
             );
           })}

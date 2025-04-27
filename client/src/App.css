@@ -160,7 +160,7 @@ body {
   }
   .layout {
     margin-left: 1%;
-    width: 94% !important;
+    width: 139% !important;
   }
   .detail-page {
     margin-right: 3%;
@@ -176,7 +176,7 @@ body {
 @media screen and (width: 360px) {
   .layout {
     margin-left: 1%;
-    width: 90% !important;
+    width: 143% !important;
   }
   .detail-page {
     width: 94%;
@@ -196,10 +196,14 @@ body {
 @media screen and (width: 344px) {
   .layout {
     margin-left: 1%;
-    width: 86% !important;
+    width: 143% !important;
   }
 }
 @media screen and (max-width: 480px) {
+  .layout {
+    margin-left: 1%;
+    width: 143% !important;
+  }
   .w-common {
     max-width: 62rem !important;
     /* margin-left: 2.5rem !important; */
@@ -351,7 +355,7 @@ body {
 
 @media screen and (width: 912px) {
   .layout {
-    width: 126% !important;
+    width: 186% !important;
     margin-left: 1.2%;
   }
   .product-detail-page {

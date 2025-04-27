@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
 import { useSelector } from "react-redux";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useDispatch } from "react-redux";
@@ -106,20 +105,22 @@ const HeaderModes = () => {
 
         {/* Gợi ý tìm kiếm */}
         {searchResults.length > 0 && (
-          <div className="absolute top-full left-0 w-full bg-white border mt-2 rounded-md shadow-lg z-10">
-            {searchResults.map((product) => (
+          <div className="absolute top-full left-0  bg-white border mt-2 rounded-md shadow-lg z-10 w-[10rem]">
+            {searchResults.slice(1, 4).map((product) => (
               <div
                 key={product._id}
                 onClick={() => handleSearchResultClick(product._id)}
                 className="cursor-pointer hover:bg-gray-200 p-2"
               >
                 <div className="flex items-center">
-                  <img
-                    src={product.images?.[0]?.url || "/default-image.jpg"}
-                    alt={product.name}
-                    className="w-10 h-10 object-cover mr-2"
-                  />
-                  <span className="text-sm">{product.name}</span>
+                  <Link to={"/collection/New Arrival"}>
+                    <img
+                      src={product.images?.[0]?.url || "/default-image.jpg"}
+                      alt={product.name}
+                      className="w-10 h-10 object-cover mr-2"
+                    />
+                    <span className="text-sm line-clamp-1">{product.name}</span>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -169,7 +170,6 @@ const HeaderModes = () => {
           }
         >
           <i className="bx bx-cart"></i>
-          <span>{items.length}</span>
         </Button>
       </Link>
     </div>
