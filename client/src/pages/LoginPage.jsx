@@ -1,47 +1,17 @@
-import React, { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { handleAPI } from "@/api/handleAPI";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  loginFail,
-  loginStart,
-  loginSuccess,
-  registerFail,
-  registerStart,
-  registerSuccess,
-} from "@/redux/reducers/UserReducer";
-import { Heading3, Loader2 } from "lucide-react";
+import { loginFail, loginStart, loginSuccess } from "@/redux/reducers/UserReducer";
+import { Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
-
-const policies = [
-  /* giữ nguyên như trước */
-];
 
 const LoginPage = () => {
   const [errors, setErrors] = useState({});
 
   const [data, setData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -58,9 +28,22 @@ const LoginPage = () => {
     setErrors({ ...errors, [name]: "" }); // Clear error when input changes
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) return "Email is required.";
+    if (!emailRegex.test(email)) return "Invalid email address.";
+    return "";
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const emailError = validateEmail(data.email);
+
+    if (emailError) {
+      setErrors({ email: emailError });
+      return;
+    }
 
     try {
       dispatch(loginStart());
@@ -83,13 +66,11 @@ const LoginPage = () => {
     }
   };
 
-
-useEffect(() => {
-  if (errors.global) {
-    toast.error(errors.global);
-  }
-}, [errors.global]);
-
+  useEffect(() => {
+    if (errors.global) {
+      toast.error(errors.global);
+    }
+  }, [errors.global]);
 
   return (
     <div className="flex justify-center items-center flex-col mb-40 w-full overflow-x-hidden">
@@ -102,7 +83,6 @@ useEffect(() => {
         onSubmit={handleSubmit}
         className="flex justify-center items-center flex-col w-[22.2rem]"
       >
-
         <div className="w-full mb-4">
           <Input
             placeholder="Enter your email address"
@@ -111,6 +91,7 @@ useEffect(() => {
             disabled={loading}
             autoComplete="new-email"
           />
+          {errors.email && <span className="text-sm text-red-500 mt-1">{errors.email}</span>}
         </div>
 
         <div className="w-full mb-4">
@@ -127,52 +108,6 @@ useEffect(() => {
           {loading && <Loader2 className="animate-spin mr-2" />}
           Continue
         </Button>
-
-        <span className="mt-[2.08333vw] text-[.72917vw] text-[#000] leading-[.72917vw]">
-          —— Join With —— 
-        </span>
-
-        <div className="flex space-x-2 mt-3 mb-4">
-          <div className="bg-[#F6F6F6] w-[2rem] h-[2rem] rounded-2xl flex justify-center items-center">
-            <i className="bx bxl-google text-center"></i>
-          </div>
-          <div className="bg-[#F6F6F6] w-[2rem] h-[2rem] rounded-2xl flex justify-center items-center">
-            <i className="bx bxl-apple text-center"></i>
-          </div>
-        </div>
-
-        <span className="text-[.625vw] text-[#999] leading-[.78125vw] text-center">
-          By continuing, you agree to our{" "}
-          {policies.map((policy, index) => (
-            <span key={index}>
-              <Dialog>
-                <DialogTrigger className="text-black underline">
-                  {policy.label}
-                </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle className="text-center">{policy.label}</DialogTitle>
-                    <DialogDescription className="flex flex-col">
-                      <ScrollArea className="max-h-[400px] overflow-y-auto pr-4">
-                        {policy.content.h2.map((heading, idx) => (
-                          <div key={idx} className="mb-4">
-                            <h2 className="uppercase font-bold text-xl text-black mb-2">
-                              {heading}
-                            </h2>
-                            <p className="text-sm text-gray-700">
-                              {policy.content.text[idx]}
-                            </p>
-                          </div>
-                        ))}
-                      </ScrollArea>
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
-              {index < policies.length - 1 && <span className="mx-1">and</span>}
-            </span>
-          ))}
-        </span>
       </form>
     </div>
   );

@@ -39,12 +39,14 @@ const RegisterPage = () => {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const [data, setData] = useState({
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const { loading, error } = useSelector((state) => state.user);
@@ -77,18 +79,26 @@ const RegisterPage = () => {
     return "";
   };
 
+  const validateConfirmPassword = () => {
+    if (!data.confirmPassword.trim()) return "Please confirm your password.";
+    if (data.confirmPassword !== data.password) return "Passwords do not match.";
+    return "";
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const nameError = validateUsername();
     const emailError = validateEmail();
     const passwordError = validatePassword();
+    const confirmPasswordError = validateConfirmPassword();
 
-    if (nameError || emailError || passwordError) {
+    if (nameError || emailError || passwordError || confirmPasswordError) {
       setErrors({
         name: nameError,
         email: emailError,
         password: passwordError,
+        confirmPassword: confirmPasswordError,
       });
       return;
     }
@@ -114,13 +124,11 @@ const RegisterPage = () => {
     }
   };
 
-
-useEffect(() => {
-  if (errors.global) {
-    toast.error(errors.global);
-  }
-}, [errors.global]);
-
+  useEffect(() => {
+    if (errors.global) {
+      toast.error(errors.global);
+    }
+  }, [errors.global]);
 
   return (
     <div className="flex justify-center items-center flex-col mb-40 w-full overflow-x-hidden">
@@ -164,6 +172,19 @@ useEffect(() => {
             disabled={loading}
           />
           {errors.password && <span className="text-sm text-red-500 mt-1">{errors.password}</span>}
+        </div>
+
+        <div className="w-full mb-4">
+          <Input
+            placeholder="Confirm your password"
+            onChange={(e) => handleChangeInput("confirmPassword", e.target.value)}
+            value={data.confirmPassword}
+            type="password"
+            disabled={loading}
+          />
+          {errors.confirmPassword && (
+            <span className="text-sm text-red-500 mt-1">{errors.confirmPassword}</span>
+          )}
         </div>
 
         <Button className="w-full mt-5" disabled={loading}>

@@ -1,8 +1,15 @@
 import CartLeft from "@/components/common/cart-modes/CartLeft";
 import CartRight from "@/components/common/cart-modes/CartRight";
-import React from "react";
+import React, { useState } from "react";
 
 const CartPage = () => {
+  const [products, setProducts] = useState([]);
+
+  const handleSelectAll = () => {
+    const allSelected = products.every((product) => product.selected);
+    setProducts(products.map((product) => ({ ...product, selected: !allSelected })));
+  };
+
   return (
     // Tùy chọn: Thêm nền nhẹ cho trang, ví dụ bg-gray-50
     <div className="bg-white md:bg-gray-50 py-6 md:py-10">

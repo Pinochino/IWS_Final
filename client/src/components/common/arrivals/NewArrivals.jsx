@@ -98,12 +98,12 @@ const NewArrivals = ({ title, layout = false, className = "" }) => {
                             className="w-full h-full object-cover"
                           />
                         </div>
-                        <div className="flex flex-col text-xs font-bold my-1 px-2 product-info">
+                        <div className="flex flex-col text-xs sm:text-sm md:text-base lg:text-lg font-bold my-1 px-2 product-info">
                           <span>{data.date}</span>
                           <span className="line-clamp-2">{data.name}</span>
                         </div>
                         <div className="flex justify-between items-center px-2 pb-0 product-price">
-                          <span className="text-[#E60021]">
+                          <span className="text-[#E60021] text-xs sm:text-sm md:text-base lg:text-lg">
                             {data.price} <sup>₫</sup>
                           </span>
                           <Button
