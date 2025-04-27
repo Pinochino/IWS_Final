@@ -51,11 +51,11 @@ const CustomCarousel = () => {
   return (
     <div>
       {isLoading ? (
-        <div className="relative w-full max-w-[90rem] mx-auto overflow-hidden mb-10 sm:mb-12 lg:mb-20 h-60 sm:h-80 lg:h-96">
+        <div className="relative w-full max-w-[90rem] mx-auto overflow-hidden mb-4 sm:mb-6 lg:mb-10 aspect-[16/9]">
           <Skeleton className="h-full w-full bg-[#E0E0E0]" />
         </div>
       ) : (
-        <div className="relative w-full max-w-[90rem] mx-auto overflow-hidden mb-10 sm:mb-12 lg:mb-20 h-60 sm:h-80 lg:h-96">
+        <div className="relative w-full max-w-[90rem] mx-auto overflow-hidden mb-4 sm:mb-6 lg:mb-10 aspect-[16/9]">
           <div className="overflow-hidden lg:mt-0 mt-10" ref={emblaRef}>
             <div className="flex">
               {imgs.map((src, i) => (
@@ -63,7 +63,7 @@ const CustomCarousel = () => {
                   <img
                     src={src}
                     alt={`slide-${i}`}
-                    className="w-full h-60 sm:h-80 lg:h-96 object-cover"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               ))}

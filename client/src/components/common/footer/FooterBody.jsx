@@ -21,9 +21,7 @@ const FooterBody = () => {
                 {/* ... path data ... */}
               </svg>
             </div>
-            <p className="mt-4 max-w-xs text-sm text-gray-600 dark:text-gray-400">
-              Nội dung mô tả ngắn gọn về cửa hàng hoặc thương hiệu của bạn ở đây.
-            </p>
+
             <ul className="mt-6 flex gap-4"> {/* Tăng gap nhẹ */}
               <li>
                 <a href="#" aria-label="Facebook" className="text-gray-500 transition hover:text-primary dark:text-gray-400 dark:hover:text-primary">

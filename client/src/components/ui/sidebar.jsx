@@ -323,7 +323,21 @@ function SidebarFooter({
       data-slot="sidebar-footer"
       data-sidebar="footer"
       className={cn("flex flex-col gap-2 p-2", className)}
-      {...props} />
+      {...props}
+    >
+      <a
+        href="/login"
+        className="text-sm text-sidebar-foreground hover:text-sidebar-accent-foreground"
+      >
+        Login
+      </a>
+      <a
+        href="/signup"
+        className="text-sm text-sidebar-foreground hover:text-sidebar-accent-foreground"
+      >
+        Sign Up
+      </a>
+    </div>
   );
 }
 
